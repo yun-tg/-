@@ -1,80 +1,84 @@
-/* 基本样式 */
+/* Reset margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and main content */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   background-color: #f4f4f4;
   color: #333;
+  display: flex;
+  height: 100vh;
 }
 
-/* 容器 */
-.container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Header 样式 */
-header {
+#sidebar {
+  width: 250px;
   background-color: #333;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 32px;
+#sidebar h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-nav ul {
+#sidebar nav ul {
   list-style: none;
   padding: 0;
-  margin: 10px 0;
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 20px;
+#sidebar nav ul li {
+  margin: 15px 0;
 }
 
-nav ul li a {
-  color: #fff;
+#sidebar nav ul li a {
+  color: white;
   text-decoration: none;
-  font-weight: bold;
   font-size: 18px;
 }
 
-nav ul li a:hover {
+#sidebar nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Hero 部分样式 */
+/* Main content area */
+#main-content {
+  margin-left: 250px;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Hero section */
 #hero {
-  background-color: #1a1a1a;  /* 深色背景 */
+  background-color: #0073e6;
   color: white;
-  padding: 60px 0; /* 增加上下间距 */
+  padding: 60px 20px;
   text-align: center;
 }
 
 #hero h2 {
-  margin: 0;
-  font-size: 36px; /* 更大的字体 */
+  font-size: 36px;
 }
 
 #hero p {
-  font-size: 20px;
-  margin-top: 20px;
+  font-size: 18px;
 }
 
-/* 各部分的样式 */
+/* Sections (tutorials, faq, contact) */
 section {
-  margin: 80px 0;
+  margin-top: 40px;
 }
 
 section h2 {
   font-size: 28px;
-  color: #333;
   margin-bottom: 20px;
 }
 
@@ -97,10 +101,11 @@ ul li a:hover {
   text-decoration: underline;
 }
 
-/* Footer 样式 */
+/* Footer */
 footer {
   background-color: #333;
   color: white;
   text-align: center;
   padding: 20px 0;
+  margin-top: 40px;
 }
