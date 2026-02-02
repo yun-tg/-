@@ -51,4 +51,8 @@
     </section>
 
     <footer>
-      <p>© 2026 TGyingxiao. All rig
+      <p>© 2026 TGyingxiao. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
