@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header Section -->
   <header>
     <div class="container">
       <h1>TGyingxiao 教程</h1>
@@ -20,13 +21,15 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section id="hero">
     <div class="container">
       <h2>欢迎来到 TGyingxiao 教程网站！</h2>
-      <p>这里你可以找到关于如何使用 TG 云控软件的教程。</p>
+      <p>这里你可以找到关于如何使用 TG 云控软件的详细教程。</p>
     </div>
   </section>
 
+  <!-- Tutorials Section -->
   <section id="tutorials" class="container">
     <h2>教程内容</h2>
     <ul>
@@ -35,6 +38,7 @@
     </ul>
   </section>
 
+  <!-- FAQ Section -->
   <section id="faq" class="container">
     <h2>常见问题</h2>
     <ul>
@@ -43,15 +47,16 @@
     </ul>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="container">
     <h2>联系我们</h2>
-    <p>如果你有任何问题，欢迎通过以下方式与我们联系：</p>
     <ul>
       <li>Email: support@yun.tg</li>
       <li>Telegram: @TG_support</li>
     </ul>
   </section>
 
+  <!-- Footer Section -->
   <footer>
     <p>© 2026 TGyingxiao. All rights reserved.</p>
   </footer>
