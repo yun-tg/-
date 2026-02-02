@@ -7,6 +7,7 @@ body {
   color: #333;
 }
 
+/* 容器 */
 .container {
   width: 80%;
   margin: 0 auto;
@@ -33,6 +34,56 @@ nav ul {
 nav ul li {
   display: inline;
   margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Hero 部分样式 */
+#hero {
+  background-color: #0073e6;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+#hero h2 {
+  margin: 0;
+  font-size: 36px;
+}
+
+/* 各部分的样式 */
+section {
+  margin: 40px 0;
+}
+
+section h2 {
+  font-size: 28px;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Footer 样式 */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
 }
 
 nav ul li a {
