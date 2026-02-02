@@ -7,7 +7,6 @@ body {
   color: #333;
 }
 
-/* 容器 */
 .container {
   width: 80%;
   margin: 0 auto;
@@ -20,26 +19,34 @@ header {
   color: #fff;
   padding: 20px 0;
   text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 header h1 {
   margin: 0;
+  font-size: 32px;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 10px 0;
 }
 
 nav ul li {
   display: inline;
-  margin: 0 15px;
+  margin: 0 20px;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  font-size: 18px;
 }
 
 nav ul li a:hover {
@@ -50,23 +57,29 @@ nav ul li a:hover {
 #hero {
   background-color: #0073e6;
   color: white;
-  padding: 40px 0;
+  padding: 100px 0;
   text-align: center;
 }
 
 #hero h2 {
   margin: 0;
-  font-size: 36px;
+  font-size: 40px;
+}
+
+#hero p {
+  font-size: 20px;
+  margin-top: 20px;
 }
 
 /* 各部分的样式 */
 section {
-  margin: 40px 0;
+  margin: 80px 0;
 }
 
 section h2 {
   font-size: 28px;
   color: #333;
+  margin-bottom: 20px;
 }
 
 ul {
@@ -75,55 +88,17 @@ ul {
 }
 
 ul li {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
-/* Footer 样式 */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-}
-
-nav ul li a {
-  color: #fff;
+ul li a {
   text-decoration: none;
+  color: #0073e6;
 }
 
-nav ul li a:hover {
+ul li a:hover {
   text-decoration: underline;
-}
-
-/* Hero 部分样式 */
-#hero {
-  background-color: #0073e6;
-  color: white;
-  padding: 40px 0;
-  text-align: center;
-}
-
-#hero h2 {
-  margin: 0;
-  font-size: 36px;
-}
-
-/* 各部分的样式 */
-section {
-  margin: 40px 0;
-}
-
-section h2 {
-  font-size: 28px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 10px;
 }
 
 /* Footer 样式 */
