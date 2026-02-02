@@ -14,6 +14,7 @@ body {
   height: 100vh;
 }
 
+/* Sidebar */
 #sidebar {
   width: 250px;
   background-color: #333;
@@ -23,6 +24,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
+  overflow-y: auto;
 }
 
 #sidebar h1 {
@@ -43,10 +45,13 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
+  display: block;
+  padding: 10px;
 }
 
 #sidebar nav ul li a:hover {
-  text-decoration: underline;
+  background-color: #0073e6;
+  border-radius: 4px;
 }
 
 /* Main content area */
@@ -54,13 +59,14 @@ body {
   margin-left: 250px;
   padding: 20px;
   width: 100%;
+  overflow-y: auto;
 }
 
 /* Hero section */
 #hero {
   background-color: #0073e6;
   color: white;
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
@@ -70,6 +76,7 @@ body {
 
 #hero p {
   font-size: 18px;
+  margin-top: 20px;
 }
 
 /* Sections (tutorials, faq, contact) */
@@ -80,6 +87,7 @@ section {
 section h2 {
   font-size: 28px;
   margin-bottom: 20px;
+  color: #333;
 }
 
 ul {
