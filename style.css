@@ -1,4 +1,4 @@
-/* 全局样式 */
+/* 基本样式 */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -7,6 +7,7 @@ body {
   color: #333;
 }
 
+/* 容器 */
 .container {
   width: 80%;
   margin: 0 auto;
@@ -19,11 +20,6 @@ header {
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
 }
 
 header h1 {
@@ -55,15 +51,15 @@ nav ul li a:hover {
 
 /* Hero 部分样式 */
 #hero {
-  background-color: #0073e6;
+  background-color: #1a1a1a;  /* 深色背景 */
   color: white;
-  padding: 100px 0;
+  padding: 60px 0; /* 增加上下间距 */
   text-align: center;
 }
 
 #hero h2 {
   margin: 0;
-  font-size: 40px;
+  font-size: 36px; /* 更大的字体 */
 }
 
 #hero p {
