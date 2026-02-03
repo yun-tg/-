@@ -69,22 +69,6 @@ body {
   margin: 10px 0;
 }
 
-/* Arrow button for showing and hiding submenu */
-.submenu-toggle {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
-}
-
-.submenu-toggle:focus {
-  outline: none;
-}
-
 /* Main content area */
 #main-content {
   margin-left: 250px; /* Make space for the sidebar */
