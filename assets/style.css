@@ -29,6 +29,7 @@ body {
   top: 0;
   left: 0;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* 确保菜单在横杠之上 */
 }
 
 .logo-container {
@@ -114,7 +115,7 @@ body {
 }
 
 .top-bar {
-  position: sticky;  /* 使横杠仅在右侧区域固定 */
+  position: fixed;  /* 改为 fixed，确保横杠显示在页面顶部 */
   top: 0;
   left: 0;
   background-color: #3498db;
@@ -124,7 +125,7 @@ body {
   font-size: 18px;
   font-weight: 600;
   text-align: center;
-  z-index: 100;
+  z-index: 1; /* 让横杠在菜单下方 */
   width: 100%;
   border-radius: 0 0 10px 10px;
 }
