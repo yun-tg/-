@@ -51,12 +51,4 @@
       </ul>
     </section>
 
-    <footer>
-      <p>© 2026 TGyingxiao. All rights reserved.</p>
-    </footer>
-  </div>
-
-  <!-- JavaScript for sidebar toggle -->
-  <script src="script.js"></script>
-</body>
-</html>
+    <footer
