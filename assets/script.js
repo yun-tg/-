@@ -16,13 +16,16 @@ document.addEventListener("DOMContentLoaded", function() {
       const targetId = this.getAttribute('href').substring(1); // 获取目标 id
       const target = document.getElementById(targetId);
 
-      // 确保滚动时不会被横杠遮挡
-      const offsetTop = target.offsetTop - document.querySelector('.top-bar').offsetHeight;
-      
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
+      // 检查目标元素是否存在
+      if (target) {
+        // 确保滚动时不会被横杠遮挡
+        const offsetTop = target.offsetTop - document.querySelector('.top-bar').offsetHeight;
+
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
     });
   });
 });
