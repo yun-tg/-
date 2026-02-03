@@ -10,10 +10,10 @@ submenuToggles.forEach(function(toggle) {
     // Toggle the submenu display
     if (submenu.style.display === 'block') {
       submenu.style.display = 'none'; // Hide the submenu
-      this.textContent = '▼'; // Change arrow direction
+      this.textContent = '▼'; // Change arrow direction to down
     } else {
       submenu.style.display = 'block'; // Show the submenu
-      this.textContent = '▲'; // Change arrow direction
+      this.textContent = '▲'; // Change arrow direction to up
     }
   });
 });
