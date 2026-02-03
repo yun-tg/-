@@ -43,6 +43,7 @@ body {
   position: relative;
 }
 
+/* Ensure main menu items' text stays visible */
 #sidebar nav ul li a {
   color: white;
   text-decoration: none;
