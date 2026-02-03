@@ -60,7 +60,7 @@ body {
   list-style: none;
   padding: 0;
   margin-left: 20px;
-  display: none; /* Hide submenus initially */
+  display: none; /* Ensure submenus are hidden by default */
 }
 
 .submenu li {
