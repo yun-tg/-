@@ -1,19 +1,88 @@
-/* 左侧宽度 */
+/* ===== 整体背景 ===== */
+body {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* ===== 左侧栏 ===== */
 .sidebar {
-  width: 260px;
+  width: 270px;
+  background: linear-gradient(180deg, #020617, #0f172a);
+  border-right: 1px solid #1e293b;
 }
 
-/* 内容区留出顶部空间 */
+/* ===== LOGO区域 ===== */
+.sidebar::before {
+  content: "";
+  display: block;
+  height: 110px;
+  background: url('../images/logo.png') center no-repeat;
+  background-size: 120px;
+  border-bottom: 1px solid #1e293b;
+}
+
+/* ===== 站点名称 ===== */
+.app-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #38bdf8 !important;
+}
+
+/* ===== 菜单文字 ===== */
+.sidebar a {
+  color: #cbd5f5;
+  transition: 0.3s;
+}
+
+/* 鼠标悬停 */
+.sidebar a:hover {
+  color: #38bdf8;
+  transform: translateX(5px);
+}
+
+/* 当前选中 */
+.sidebar .active {
+  color: #22d3ee !important;
+  font-weight: bold;
+}
+
+/* ===== 子菜单缩进 ===== */
+.sidebar ul ul {
+  padding-left: 15px;
+}
+
+/* ===== 内容区域 ===== */
 .markdown-section {
-  padding-top: 60px;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  background: #020617;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
 }
 
-/* 顶部更新时间横栏 */
+/* ===== 标题横栏 ===== */
 .markdown-section h1 {
   position: sticky;
   top: 0;
-  background: #ffffff;
-  border-bottom: 3px solid #4CAF50;
-  padding: 15px;
+  background: #020617;
+  padding: 15px 20px;
+  border-bottom: 3px solid #38bdf8;
   z-index: 999;
+}
+
+/* ===== 图片圆角 ===== */
+.markdown-section img {
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+/* ===== 滚动条美化 ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 10px;
 }
