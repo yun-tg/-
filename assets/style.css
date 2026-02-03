@@ -108,10 +108,11 @@ body {
 /* 右侧内容 */
 .content {
   margin-left: 260px;
-  padding: 0 40px 40px 40px;
+  padding: 40px 40px 40px 40px;
   flex-grow: 1;
   overflow-y: auto;
   height: 100vh;
+  padding-top: 60px;  /* 给右侧内容添加上方内边距，确保不会被横杠挡住 */
 }
 
 .top-bar {
