@@ -1,4 +1,4 @@
-// Get all submenu toggle buttons and main menu links
+// Get all menu toggle buttons and main menu links
 const menuToggles = document.querySelectorAll('.menu-toggle');
 const submenuToggles = document.querySelectorAll('.submenu-toggle');
 
