@@ -2,7 +2,9 @@
 const sidebar = document.getElementById('sidebar');
 const toggleButton = document.getElementById('sidebar-toggle');
 
-// Initially, the sidebar is hidden, so we set left to -250px
+// Ensure the sidebar starts off-screen
+sidebar.style.left = '-250px';
+
 // Toggle the sidebar visibility on button click
 toggleButton.addEventListener('click', function() {
   // If the sidebar is already shown, hide it
