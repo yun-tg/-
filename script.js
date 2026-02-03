@@ -9,13 +9,13 @@ menuToggles.forEach(toggle => {
         const arrow = this.querySelector('.arrow');
 
         // 切换子菜单的显示和隐藏
-        if (submenu.style.display === 'block') {
-            submenu.style.display = 'none';
-            arrow.style.transform = 'rotate(0deg)'; // 恢复箭头方向
+        submenu.classList.toggle('visible');
+
+        // 旋转箭头符号
+        if (submenu.classList.contains('visible')) {
+            arrow.style.transform = 'rotate(90deg)';
         } else {
-            submenu.style.display = 'block';
-            arrow.style.transform = 'rotate(90deg)'; // 旋转箭头
+            arrow.style.transform = 'rotate(0deg)';
         }
     });
 });
-// 你可以在这里添加一些交互功能，譬如点击菜单时高亮显示等
