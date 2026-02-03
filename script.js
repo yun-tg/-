@@ -8,8 +8,10 @@ function toggleSubmenu(event) {
   // Toggle submenu visibility
   if (submenu.style.display === 'block') {
     submenu.style.display = 'none'; // Hide submenu
+    this.classList.remove('open'); // Remove the 'open' class to reset the style
   } else {
     submenu.style.display = 'block'; // Show submenu
+    this.classList.add('open'); // Add the 'open' class to change the style
   }
 }
 
