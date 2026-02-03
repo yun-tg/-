@@ -18,9 +18,15 @@ function toggleSubmenu(event) {
 
 // Attach event listeners to menu items and submenu toggle buttons
 menuToggles.forEach(function(toggle) {
-  toggle.addEventListener('click', toggleSubmenu);  // Toggle on main menu item click
+  toggle.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    toggleSubmenu.call(this, event);
+  });  // Toggle on main menu item click
 });
 
 submenuToggles.forEach(function(toggle) {
-  toggle.addEventListener('click', toggleSubmenu);  // Toggle on arrow button click
+  toggle.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    toggleSubmenu.call(this, event);
+  });  // Toggle on arrow button click
 });
