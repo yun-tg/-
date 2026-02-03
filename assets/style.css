@@ -26,6 +26,22 @@ body {
   left: 0;
 }
 
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.site-name {
+  font-size: 20px;
+  color: #ecf0f1;
+  margin-top: 10px;
+}
+
 .sidebar ul {
   list-style: none;
 }
@@ -68,14 +84,34 @@ body {
   flex-grow: 1;
   background-color: #fff;
   border-top: 4px solid #3498db;
+  overflow-y: auto;
 }
 
-.content h1 {
+.top-bar {
+  height: 40px;
+  background-color: #3498db;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.tutorial-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-section h1 {
   font-size: 24px;
-  color: #2c3e50;
+  margin-bottom: 10px;
 }
 
-.content p {
+.tutorial-section p {
   font-size: 18px;
   line-height: 1.6;
 }
