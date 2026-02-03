@@ -1,85 +1,47 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>云端漫步 教程</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教程站点</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Sidebar -->
-  <div id="sidebar">
-    <h1>云端漫步 教程</h1>
-    <nav>
-      <ul>
-        <li>
-          <a href="#" class="menu-toggle">教程 <span class="menu-icon">▼</span></a> <!-- Arrow added here -->
-          <ul class="submenu">
-            <li><a href="#installation">安装教程</a></li>
-            <li><a href="#advanced">进阶教程</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#" class="menu-toggle">常见问题 <span class="menu-icon">▼</span></a> <!-- Arrow added here -->
-          <ul class="submenu">
-            <li><a href="#installation-faq">安装问题</a></li>
-            <li><a href="#usage-faq">使用问题</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact">联系我们</a></li>
-      </ul>
-    </nav>
-  </div>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="#menu1">主菜单 1</a>
+                    <ul>
+                        <li><a href="#submenu1">子菜单 1.1</a></li>
+                        <li><a href="#submenu2">子菜单 1.2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#menu2">主菜单 2</a></li>
+            </ul>
+        </div>
 
-  <!-- Main Content -->
-  <div id="main-content">
-    <section id="hero">
-      <h2>欢迎来到 云端漫步 教程网站！</h2>
-      <p>这里你可以找到关于如何使用 TG 云控软件的详细教程。</p>
-    </section>
+        <!-- 主内容区域 -->
+        <div class="content">
+            <div id="menu1">
+                <h2>主菜单 1</h2>
+                <p>这里是主菜单 1 的详情内容。</p>
+            </div>
+            <div id="submenu1">
+                <h3>子菜单 1.1</h3>
+                <p>这里是子菜单 1.1 的内容。</p>
+            </div>
+            <div id="submenu2">
+                <h3>子菜单 1.2</h3>
+                <p>这里是子菜单 1.2 的内容。</p>
+            </div>
+            <div id="menu2">
+                <h2>主菜单 2</h2>
+                <p>这里是主菜单 2 的内容。</p>
+            </div>
+        </div>
+    </div>
 
-    <section id="tutorials">
-      <h2>教程内容</h2>
-      <ul>
-        <li><a href="#installation">安装教程</a></li>
-        <li><a href="#advanced">进阶教程</a></li>
-      </ul>
-    </section>
-
-    <section id="faq">
-      <h2>常见问题</h2>
-      <ul>
-        <li><a href="#installation-faq">安装问题</a></li>
-        <li><a href="#usage-faq">使用问题</a></li>
-      </ul>
-    </section>
-
-    <section id="installation">
-      <h2>安装教程</h2>
-      <p>这是安装教程的内容。</p>
-    </section>
-
-    <section id="advanced">
-      <h2>进阶教程</h2>
-      <p>这是进阶教程的内容。</p>
-    </section>
-
-    <section id="installation-faq">
-      <h2>安装问题</h2>
-      <p>这是安装相关的常见问题。</p>
-    </section>
-
-    <section id="usage-faq">
-      <h2>使用问题</h2>
-      <p>这是使用相关的常见问题。</p>
-    </section>
-
-    <footer>
-      <p>© 2026 TGyingxiao. All rights reserved.</p>
-    </footer>
-  </div>
-
-  <!-- JavaScript for sidebar toggle -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
