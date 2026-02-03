@@ -1,147 +1,50 @@
-/* Reset margin and padding */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Body and main content */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  display: flex;
-  height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: Arial, sans-serif;
+    display: flex;
 }
 
-/* Sidebar */
-#sidebar {
-  width: 250px;
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  overflow-y: auto;
+.container {
+    display: flex;
+    width: 100%;
 }
 
-#sidebar h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
 }
 
-#sidebar nav ul {
-  list-style: none;
-  padding: 0;
+.sidebar ul {
+    list-style-type: none;
 }
 
-#sidebar nav ul li {
-  margin: 15px 0;
-  position: relative;
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
 }
 
-/* Main menu item styles */
-#sidebar nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  display: block;
-  padding: 10px;
-  transition: background-color 0.3s ease;
+.sidebar a:hover {
+    background-color: #555;
 }
 
-#sidebar nav ul li a:hover {
-  background-color: #0073e6;
-  border-radius: 4px;
+.content {
+    flex: 1;
+    padding: 20px;
 }
 
-/* Menu icon styles */
-.menu-icon {
-  float: right;
-  font-size: 18px;
-  transition: transform 0.3s ease;
+.content h2 {
+    color: #333;
 }
 
-/* Change color or style when sub-menu is open */
-.menu-toggle.open .menu-icon {
-  transform: rotate(180deg); /* Flip the arrow when open */
-}
-
-/* Hide submenus initially */
-.submenu {
-  list-style: none;
-  padding: 0;
-  margin-left: 20px;
-  display: none; /* Hide submenus initially */
-}
-
-.submenu li {
-  margin: 10px 0;
-}
-
-/* Main content area */
-#main-content {
-  margin-left: 250px; /* Make space for the sidebar */
-  padding: 20px;
-  width: 100%;
-  overflow-y: auto;
-}
-
-/* Hero section */
-#hero {
-  background-color: #0073e6;
-  color: white;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-#hero h2 {
-  font-size: 36px;
-}
-
-#hero p {
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-/* Sections (tutorials, faq, contact) */
-section {
-  margin-top: 40px;
-}
-
-section h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-ul li a {
-  text-decoration: none;
-  color: #0073e6;
-}
-
-ul li a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
+.content p {
+    color: #666;
 }
