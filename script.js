@@ -1,32 +1,19 @@
-// Get all menu toggle buttons and main menu links
+// Get all menu toggle buttons (menu items)
 const menuToggles = document.querySelectorAll('.menu-toggle');
-const submenuToggles = document.querySelectorAll('.submenu-toggle');
 
 // Function to toggle submenu display
 function toggleSubmenu(event) {
-  const submenu = this.parentElement.querySelector('.submenu'); // Get the corresponding submenu
+  const submenu = this.nextElementSibling; // Get the corresponding submenu (next <ul>)
 
   // Toggle submenu visibility
   if (submenu.style.display === 'block') {
     submenu.style.display = 'none'; // Hide submenu
-    this.textContent = '▼'; // Change arrow direction to down
   } else {
     submenu.style.display = 'block'; // Show submenu
-    this.textContent = '▲'; // Change arrow direction to up
   }
 }
 
-// Attach event listeners to menu items and submenu toggle buttons
+// Attach event listeners to menu items
 menuToggles.forEach(function(toggle) {
-  toggle.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default link behavior
-    toggleSubmenu.call(this, event);
-  });  // Toggle on main menu item click
-});
-
-submenuToggles.forEach(function(toggle) {
-  toggle.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default link behavior
-    toggleSubmenu.call(this, event);
-  });  // Toggle on arrow button click
+  toggle.addEventListener('click', toggleSubmenu);  // Toggle on main menu item click
 });
