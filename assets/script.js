@@ -13,9 +13,5 @@ document.addEventListener("DOMContentLoaded", function() {
   links.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
-      const target = document.getElementById(targetId);
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-});
+      const targetId = this.getAttribute('href').substring(1); // 获取目标 id
+      const target = document.getElementById(target
