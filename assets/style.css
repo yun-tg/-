@@ -114,7 +114,7 @@ body {
 }
 
 .top-bar {
-  position: sticky;  /* 修改为 sticky，确保仅在内容区域显示，不影响左侧菜单 */
+  position: sticky;  /* 使横杠仅在右侧区域固定 */
   top: 0;
   left: 0;
   background-color: #3498db;
