@@ -14,7 +14,7 @@
       <ul>
         <li>
           <a href="#tutorials" class="menu-toggle">教程</a>
-          <button class="submenu-toggle">▼</button>
+          <button class="submenu-toggle">▼</button> <!-- Only add arrow here -->
           <ul class="submenu">
             <li><a href="#installation">安装教程</a></li>
             <li><a href="#advanced">进阶教程</a></li>
@@ -22,13 +22,13 @@
         </li>
         <li>
           <a href="#faq" class="menu-toggle">常见问题</a>
-          <button class="submenu-toggle">▼</button>
+          <button class="submenu-toggle">▼</button> <!-- Only add arrow here -->
           <ul class="submenu">
             <li><a href="#installation-faq">安装问题</a></li>
             <li><a href="#usage-faq">使用问题</a></li>
           </ul>
         </li>
-        <li><a href="#contact">联系我们</a></li>
+        <li><a href="#contact">联系我们</a></li> <!-- No submenu, no arrow -->
       </ul>
     </nav>
   </div>
