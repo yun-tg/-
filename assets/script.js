@@ -18,12 +18,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // 检查目标元素是否存在
       if (target) {
-        // 确保滚动时不会被横杠遮挡
-        const offsetTop = target.offsetTop - document.querySelector('.top-bar').offsetHeight;
-
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
+        target.scrollIntoView({
+          behavior: 'smooth', // 平滑滚动
+          block: 'start', // 确保目标元素滚动到视口顶部
         });
       }
     });
