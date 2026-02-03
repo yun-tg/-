@@ -12,7 +12,6 @@ body {
   color: #333;
   display: flex;
   height: 100vh;
-  transition: margin-left 0.3s ease;
 }
 
 /* Sidebar */
@@ -23,7 +22,7 @@ body {
   padding: 20px;
   position: fixed;
   top: 0;
-  left: 0; /* Make sure it's at the left edge */
+  left: 0;
   height: 100%;
   overflow-y: auto;
 }
@@ -55,9 +54,21 @@ body {
   border-radius: 4px;
 }
 
+/* Dropdown submenu styles */
+#sidebar nav ul li ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 20px;
+  display: none; /* Hide submenus initially */
+}
+
+#sidebar nav ul li:hover ul {
+  display: block; /* Show submenu when parent is hovered */
+}
+
 /* Main content area */
 #main-content {
-  margin-left: 250px; /* Shift content to the right */
+  margin-left: 250px; /* Make space for the sidebar */
   padding: 20px;
   width: 100%;
 }
