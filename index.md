@@ -11,8 +11,9 @@
         <!-- 侧边栏 -->
         <div class="sidebar">
             <ul>
-                <li><a href="#menu1">主菜单 1</a>
-                    <ul>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">主菜单 1 <span class="arrow">▼</span></a>
+                    <ul class="submenu">
                         <li><a href="#submenu1">子菜单 1.1</a></li>
                         <li><a href="#submenu2">子菜单 1.2</a></li>
                     </ul>
