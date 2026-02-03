@@ -34,7 +34,7 @@
   <!-- Main Content -->
   <div id="main-content">
     <section id="hero">
-      <h2>欢迎来到 TGyingxiao 教程网站！</h2>
+      <h2>欢迎来到 云端漫步 教程网站！</h2>
       <p>这里你可以找到关于如何使用 TG 云控软件的详细教程。</p>
     </section>
 
@@ -56,7 +56,8 @@
 
     <section id="installation">
       <h2>安装教程</h2>
-      <p>这是安装教程的内容。</p>
+      <p><img width="833" height="363" alt="image" src="https://github.com/user-attachments/assets/85ed31d9-761d-4d7e-b5be-e07b2b72fd0f" />
+</p>
     </section>
 
     <section id="advanced">
