@@ -12,22 +12,21 @@
     <h1>TGyingxiao 教程</h1>
     <nav>
       <ul>
-        <!-- Main menu item with a submenu -->
         <li>
-          <a href="#" class="menu-toggle">教程</a>
+          <a href="#" class="menu-toggle">教程 <span class="menu-icon">▼</span></a> <!-- Arrow added here -->
           <ul class="submenu">
             <li><a href="#installation">安装教程</a></li>
             <li><a href="#advanced">进阶教程</a></li>
           </ul>
         </li>
         <li>
-          <a href="#" class="menu-toggle">常见问题</a>
+          <a href="#" class="menu-toggle">常见问题 <span class="menu-icon">▼</span></a> <!-- Arrow added here -->
           <ul class="submenu">
             <li><a href="#installation-faq">安装问题</a></li>
             <li><a href="#usage-faq">使用问题</a></li>
           </ul>
         </li>
-        <li><a href="#contact">联系我们</a></li> <!-- No submenu, no arrow -->
+        <li><a href="#contact">联系我们</a></li>
       </ul>
     </nav>
   </div>
