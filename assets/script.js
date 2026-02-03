@@ -14,4 +14,15 @@ document.addEventListener("DOMContentLoaded", function() {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href').substring(1); // 获取目标 id
-      const target = document.getElementById(target
+      const target = document.getElementById(targetId);
+
+      // 确保滚动时不会被横杠遮挡
+      const offsetTop = target.offsetTop - document.querySelector('.top-bar').offsetHeight;
+      
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    });
+  });
+});
