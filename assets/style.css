@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif; /* 使用现代字体 */
+  font-family: 'Roboto', sans-serif;
   background-color: #f7f7f7; /* 淡灰背景 */
   color: #333;
   line-height: 1.6;
@@ -98,7 +98,7 @@ body {
   display: none;
   list-style: none;
   padding-left: 20px;
-  transition: all 0.3s ease; /* 平滑展开 */
+  transition: all 0.3s ease;
 }
 
 .submenu.active .submenu-items {
@@ -129,6 +129,9 @@ body {
   font-weight: 600;
   margin-bottom: 30px;
   border-radius: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .tutorial-section {
