@@ -12,6 +12,7 @@ body {
   color: #333;
   display: flex;
   height: 100vh;
+  transition: margin-left 0.3s ease;
 }
 
 /* Sidebar */
@@ -22,9 +23,10 @@ body {
   padding: 20px;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -250px; /* Initially hidden */
   height: 100%;
   overflow-y: auto;
+  transition: left 0.3s ease; /* Smooth transition */
 }
 
 #sidebar h1 {
@@ -56,10 +58,10 @@ body {
 
 /* Main content area */
 #main-content {
-  margin-left: 250px;
+  margin-left: 0;
   padding: 20px;
   width: 100%;
-  overflow-y: auto;
+  transition: margin-left 0.3s ease;
 }
 
 /* Hero section */
@@ -116,4 +118,18 @@ footer {
   text-align: center;
   padding: 20px 0;
   margin-top: 40px;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+  background-color: #333;
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
 }
