@@ -55,15 +55,15 @@ body {
 }
 
 /* Dropdown submenu styles */
-#sidebar nav ul li ul {
+.submenu {
   list-style: none;
   padding: 0;
   margin-left: 20px;
   display: none; /* Hide submenus initially */
 }
 
-#sidebar nav ul li:hover ul {
-  display: block; /* Show submenu when parent is hovered */
+.submenu li {
+  margin: 10px 0;
 }
 
 /* Main content area */
