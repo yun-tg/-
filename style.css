@@ -43,18 +43,31 @@ body {
   position: relative;
 }
 
-/* Ensure main menu items' text stays visible */
+/* Main menu item styles */
 #sidebar nav ul li a {
   color: white;
   text-decoration: none;
   font-size: 18px;
   display: block;
   padding: 10px;
+  transition: background-color 0.3s ease;
 }
 
 #sidebar nav ul li a:hover {
   background-color: #0073e6;
   border-radius: 4px;
+}
+
+/* Menu icon styles */
+.menu-icon {
+  float: right;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+/* Change color or style when sub-menu is open */
+.menu-toggle.open .menu-icon {
+  transform: rotate(180deg); /* Flip the arrow when open */
 }
 
 /* Hide submenus initially */
