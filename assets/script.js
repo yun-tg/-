@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // 点击主菜单展开/收起子菜单
+  // 处理子菜单展开/收起
   const toggles = document.querySelectorAll('.submenu-toggle');
   toggles.forEach(toggle => {
     toggle.addEventListener('click', function(event) {
