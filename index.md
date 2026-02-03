@@ -9,6 +9,7 @@
 <body>
   <!-- Sidebar -->
   <div id="sidebar">
+    <button id="sidebar-toggle" class="sidebar-toggle">☰</button>
     <h1>TGyingxiao 教程</h1>
     <nav>
       <ul>
@@ -54,5 +55,8 @@
       <p>© 2026 TGyingxiao. All rights reserved.</p>
     </footer>
   </div>
+
+  <!-- JavaScript for sidebar toggle -->
+  <script src="script.js"></script>
 </body>
 </html>
