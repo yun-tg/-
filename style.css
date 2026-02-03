@@ -1,13 +1,18 @@
+/* 重置默认样式 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%; /* 确保整个页面都能填满 */
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    height: 100vh; /* 满屏高度 */
+    height: 100%; /* 让页面的高度填满 */
 }
 
 .container {
@@ -17,12 +22,12 @@ body {
 }
 
 .sidebar {
-    width: 250px;
+    width: 250px; /* 侧边栏宽度 */
     background-color: #333;
     color: white;
     padding: 20px;
-    height: 100%; /* 侧边栏填满整个页面高度 */
-    overflow-y: auto; /* 侧边栏内容滚动 */
+    height: 100%; /* 让侧边栏填满高度 */
+    overflow-y: auto; /* 允许侧边栏内容滚动 */
 }
 
 .sidebar ul {
@@ -41,7 +46,7 @@ body {
 }
 
 .submenu {
-    display: none; /* 隐藏子菜单 */
+    display: none; /* 初始隐藏子菜单 */
     margin-left: 20px;
 }
 
@@ -52,11 +57,11 @@ body {
 }
 
 .content {
-    flex: 1;
+    flex: 1; /* 右侧内容区域填充剩余空间 */
     padding: 20px;
     background-color: #f4f4f4;
-    height: 100%;
-    overflow-y: auto; /* 右侧内容滚动 */
+    height: 100%; /* 右侧内容区域填充剩余高度 */
+    overflow-y: auto; /* 允许内容滚动 */
 }
 
 .content h2 {
