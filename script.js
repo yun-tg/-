@@ -1,7 +1,7 @@
-// Get all menu toggle buttons (menu items)
+// Get all main menu items (menu toggles)
 const menuToggles = document.querySelectorAll('.menu-toggle');
 
-// Function to toggle submenu display
+// Function to toggle submenu visibility
 function toggleSubmenu(event) {
   const submenu = this.nextElementSibling; // Get the corresponding submenu (next <ul>)
 
@@ -15,5 +15,8 @@ function toggleSubmenu(event) {
 
 // Attach event listeners to menu items
 menuToggles.forEach(function(toggle) {
-  toggle.addEventListener('click', toggleSubmenu);  // Toggle on main menu item click
+  toggle.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    toggleSubmenu.call(this, event);
+  });  // Toggle on main menu item click
 });
