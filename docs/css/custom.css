@@ -1,0 +1,19 @@
+/* 左侧宽度 */
+.sidebar {
+  width: 260px;
+}
+
+/* 内容区留出顶部空间 */
+.markdown-section {
+  padding-top: 60px;
+}
+
+/* 顶部更新时间横栏 */
+.markdown-section h1 {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  border-bottom: 3px solid #4CAF50;
+  padding: 15px;
+  z-index: 999;
+}
