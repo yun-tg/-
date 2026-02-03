@@ -1,3 +1,4 @@
+/* 重置默认样式 */
 * {
   margin: 0;
   padding: 0;
@@ -21,14 +22,14 @@ body {
 /* 左侧菜单 */
 .sidebar {
   width: 260px;
-  background-color: #2d3e50;
+  background-color: #2d3e50; /* 深蓝色背景 */
   color: #fff;
   padding: 30px 20px;
   position: fixed;
   height: 100%;
   top: 0;
   left: 0;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container {
@@ -49,6 +50,7 @@ body {
   margin-top: 15px;
 }
 
+/* 菜单 */
 .sidebar ul {
   list-style: none;
 }
@@ -103,7 +105,7 @@ body {
   transform: rotate(180deg);
 }
 
-/* 内容区域 */
+/* 右侧内容 */
 .content {
   margin-left: 260px;
   padding: 0 40px 40px 40px;
@@ -148,6 +150,7 @@ body {
   line-height: 1.8;
 }
 
+/* 响应式设计 */
 @media (max-width: 768px) {
   .container { flex-direction: column; }
   .sidebar { width: 100%; position: static; }
