@@ -12,8 +12,18 @@
     <h1>TGyingxiao 教程</h1>
     <nav>
       <ul>
-        <li><a href="#tutorials">教程</a></li>
-        <li><a href="#faq">常见问题</a></li>
+        <li><a href="#tutorials">教程</a>
+          <ul>
+            <li><a href="#installation">安装教程</a></li>
+            <li><a href="#advanced">进阶教程</a></li>
+          </ul>
+        </li>
+        <li><a href="#faq">常见问题</a>
+          <ul>
+            <li><a href="#installation-faq">安装问题</a></li>
+            <li><a href="#usage-faq">使用问题</a></li>
+          </ul>
+        </li>
         <li><a href="#contact">联系我们</a></li>
       </ul>
     </nav>
@@ -26,28 +36,46 @@
       <p>这里你可以找到关于如何使用 TG 云控软件的详细教程。</p>
     </section>
 
+    <!-- Tutorials Section -->
     <section id="tutorials">
       <h2>教程内容</h2>
       <ul>
-        <li><a href="#">基础教程：如何安装和使用 TG 云控</a></li>
-        <li><a href="#">进阶教程：更多功能介绍</a></li>
+        <li><a href="#installation">安装教程</a></li>
+        <li><a href="#advanced">进阶教程</a></li>
       </ul>
     </section>
 
+    <!-- FAQ Section -->
     <section id="faq">
       <h2>常见问题</h2>
       <ul>
-        <li><a href="#">如何安装 TG 云控？</a></li>
-        <li><a href="#">如何使用 TG 云控的高级功能？</a></li>
+        <li><a href="#installation-faq">安装问题</a></li>
+        <li><a href="#usage-faq">使用问题</a></li>
       </ul>
     </section>
 
-    <section id="contact">
-      <h2>联系我们</h2>
-      <ul>
-        <li>Email: support@yun.tg</li>
-        <li>Telegram: @TG_support</li>
-      </ul>
+    <!-- Installation Tutorial Section -->
+    <section id="installation">
+      <h2>安装教程</h2>
+      <p>这是安装教程的内容。</p>
+    </section>
+
+    <!-- Advanced Tutorial Section -->
+    <section id="advanced">
+      <h2>进阶教程</h2>
+      <p>这是进阶教程的内容。</p>
+    </section>
+
+    <!-- FAQ - Installation Section -->
+    <section id="installation-faq">
+      <h2>安装问题</h2>
+      <p>这是安装相关的常见问题。</p>
+    </section>
+
+    <!-- FAQ - Usage Section -->
+    <section id="usage-faq">
+      <h2>使用问题</h2>
+      <p>这是使用相关的常见问题。</p>
     </section>
 
     <footer>
