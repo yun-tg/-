@@ -1,19 +1,26 @@
-// Get all submenu toggle buttons
+// Get all menu toggle buttons and main menu links
+const menuToggles = document.querySelectorAll('.menu-toggle');
 const submenuToggles = document.querySelectorAll('.submenu-toggle');
 
-// Loop through each submenu toggle and add a click event
-submenuToggles.forEach(function(toggle) {
-  toggle.addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent the default link behavior
-    const submenu = this.parentElement.querySelector('.submenu'); // Get the corresponding submenu
+// Function to toggle submenu display
+function toggleSubmenu(event) {
+  const submenu = this.parentElement.querySelector('.submenu'); // Get the corresponding submenu
 
-    // Toggle the submenu display
-    if (submenu.style.display === 'block') {
-      submenu.style.display = 'none'; // Hide the submenu
-      this.textContent = '▼'; // Change arrow direction to down
-    } else {
-      submenu.style.display = 'block'; // Show the submenu
-      this.textContent = '▲'; // Change arrow direction to up
-    }
-  });
+  // Toggle submenu visibility
+  if (submenu.style.display === 'block') {
+    submenu.style.display = 'none'; // Hide submenu
+    this.textContent = '▼'; // Change arrow direction
+  } else {
+    submenu.style.display = 'block'; // Show submenu
+    this.textContent = '▲'; // Change arrow direction
+  }
+}
+
+// Attach event listeners to menu items and submenu toggle buttons
+menuToggles.forEach(function(toggle) {
+  toggle.addEventListener('click', toggleSubmenu);
+});
+
+submenuToggles.forEach(function(toggle) {
+  toggle.addEventListener('click', toggleSubmenu);
 });
