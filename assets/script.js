@@ -4,7 +4,11 @@ document.addEventListener("DOMContentLoaded", function() {
   submenu.forEach(item => {
     item.addEventListener('click', function() {
       const submenuItems = this.nextElementSibling;
+      const parentMenu = this.parentElement;
       submenuItems.style.display = submenuItems.style.display === 'block' ? 'none' : 'block';
+      
+      // 切换箭头旋转
+      parentMenu.classList.toggle('active');
     });
   });
 
