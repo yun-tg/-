@@ -79,4 +79,77 @@ body {
 
 .submenu > a {
   cursor: pointer;
-  font-weight: bold
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.submenu-items {
+  display: none;
+  list-style: none;
+  padding-left: 20px;
+}
+
+.submenu.active .submenu-items {
+  display: block;
+}
+
+.submenu.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* 内容区域 */
+.content {
+  margin-left: 260px;
+  padding: 0 40px 40px 40px;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #3498db;
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  z-index: 100;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+}
+
+.tutorial-section {
+  margin: 20px 0;
+  padding: 20px 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+.tutorial-section h1 {
+  font-size: 28px;
+  color: #2d3e50;
+  margin-bottom: 15px;
+}
+
+.tutorial-section p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .container { flex-direction: column; }
+  .sidebar { width: 100%; position: static; }
+  .content { margin-left: 0; padding: 20px; }
+}
