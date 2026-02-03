@@ -56,8 +56,7 @@
 
     <section id="installation">
       <h2>安装教程</h2>
-      <p><img width="833" height="363" alt="image" src="https://github.com/user-attachments/assets/85ed31d9-761d-4d7e-b5be-e07b2b72fd0f" />
-</p>
+      <p>这是安装教程的内容。</p>
     </section>
 
     <section id="advanced">
