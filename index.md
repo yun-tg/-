@@ -12,7 +12,7 @@
     <h1>TGyingxiao 教程</h1>
     <nav>
       <ul>
-        <li>
+        <li class="submenu-container">
           <a href="#tutorials" class="menu-toggle">教程</a>
           <button class="submenu-toggle">▼</button> <!-- Only show arrow for submenus -->
           <ul class="submenu">
@@ -20,7 +20,7 @@
             <li><a href="#advanced">进阶教程</a></li>
           </ul>
         </li>
-        <li>
+        <li class="submenu-container">
           <a href="#faq" class="menu-toggle">常见问题</a>
           <button class="submenu-toggle">▼</button> <!-- Only show arrow for submenus -->
           <ul class="submenu">
@@ -59,29 +59,3 @@
     <section id="installation">
       <h2>安装教程</h2>
       <p>这是安装教程的内容。</p>
-    </section>
-
-    <section id="advanced">
-      <h2>进阶教程</h2>
-      <p>这是进阶教程的内容。</p>
-    </section>
-
-    <section id="installation-faq">
-      <h2>安装问题</h2>
-      <p>这是安装相关的常见问题。</p>
-    </section>
-
-    <section id="usage-faq">
-      <h2>使用问题</h2>
-      <p>这是使用相关的常见问题。</p>
-    </section>
-
-    <footer>
-      <p>© 2026 TGyingxiao. All rights reserved.</p>
-    </footer>
-  </div>
-
-  <!-- JavaScript for sidebar toggle -->
-  <script src="script.js"></script>
-</body>
-</html>
