@@ -9,7 +9,10 @@ const tutorials = [
 
 // 自动生成菜单 & 加载内容
 (async function loadTutorials(){
+    // 清空教程内容（保留顶部板块）
+    const topPanel = document.querySelector(".top-panel");
     content.innerHTML = "";
+    content.appendChild(topPanel);
 
     for(let i=0;i<tutorials.length;i++){
         try{
@@ -90,7 +93,7 @@ const tutorials = [
     // 高亮菜单
     const menuLinks=document.querySelectorAll(".sidebar a");
     window.addEventListener("scroll", ()=>{
-        let fromTop = window.scrollY + 100;
+        let fromTop = window.scrollY + 120;
         menuLinks.forEach(link=>{
             const section=document.querySelector(link.getAttribute("href"));
             if(!section) return;
