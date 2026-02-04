@@ -1,38 +1,20 @@
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
+const defaultIcon = "fas fa-book"; // 主菜单统一图标
+const maxTutorials = 100; // 最大尝试加载教程数量
 
-// 默认主菜单图标
-const defaultIcon = "fas fa-book";
-
-// 自动扫描 tutorials 文件夹
-async function getTutorialFiles() {
-    // 这里使用 GitHub Pages 静态文件，无法动态读取目录
-    // 所以我们采用一个 tricks：维护一个 index.json 文件
-    // index.json 内容示例：
-    // ["01_基础入门.html","02_进阶教程.html","03_高级技巧.html"]
-    try {
-        const res = await fetch("tutorials/index.json");
-        if (!res.ok) throw new Error("无法加载 tutorials/index.json");
-        const files = await res.json();
-        return files.map(f => "tutorials/" + f);
-    } catch(e) {
-        console.error(e);
-        return [];
-    }
-}
-
-(async function loadTutorials(){
+(async function loadTutorials() {
     const topPanel = document.querySelector(".top-panel");
     content.innerHTML = "";
     content.appendChild(topPanel);
 
-    const tutorialFiles = await getTutorialFiles();
-
-    for(let i=0;i<tutorialFiles.length;i++){
-        const file = tutorialFiles[i];
+    let i = 1;
+    while(i <= maxTutorials){
+        let num = i.toString().padStart(2,"0");
+        let file = `tutorials/${num}_教程.html`;
         try{
             const res = await fetch(file);
-            if(!res.ok) throw new Error("无法加载: "+file);
+            if(!res.ok) break; // 文件不存在，停止
             const html = await res.text();
 
             // 创建右侧卡片
@@ -44,22 +26,22 @@ async function getTutorialFiles() {
 
             // 主标题 h1 加图标
             const h1 = section.querySelector("h1");
-            if(h1) {
+            if(h1){
                 const iconElem = document.createElement("i");
                 iconElem.className = defaultIcon;
                 h1.prepend(iconElem);
             }
 
-            // 创建左侧菜单主项
+            // 左侧菜单主项
             const li = document.createElement("li");
             const a = document.createElement("a");
-            a.href="#"+section.id;
-            a.innerHTML = `<i class="${defaultIcon}"></i>${h1? h1.innerText : '章节'+(i+1)}`;
+            a.href = "#"+section.id;
+            a.innerHTML = `<i class="${defaultIcon}"></i>${h1? h1.innerText : '章节'+i}`;
             li.appendChild(a);
 
             // 子章节 h2
             const h2s = section.querySelectorAll("h2");
-            if(h2s.length>0){
+            if(h2s.length > 0){
                 li.classList.add("has-sub");
                 const ulSub = document.createElement("ul");
                 ulSub.classList.add("submenu");
@@ -67,15 +49,15 @@ async function getTutorialFiles() {
                 h2s.forEach((h2,j)=>{
                     const subLi = document.createElement("li");
                     const subA = document.createElement("a");
-                    const subId = section.id+"-"+j;
-                    h2.id=subId;
+                    const subId = section.id + "-" + j;
+                    h2.id = subId;
 
                     // h2 左侧箭头图标
                     const h2Icon = document.createElement("i");
                     h2Icon.className = "fas fa-angle-right";
                     h2.prepend(h2Icon);
 
-                    subA.href="#"+subId;
+                    subA.href = "#" + subId;
                     subA.textContent = h2.innerText;
                     subA.addEventListener("click", e=>{
                         e.preventDefault();
@@ -91,8 +73,8 @@ async function getTutorialFiles() {
                     e.preventDefault();
                     const submenu = li.querySelector(".submenu");
                     const isOpen = submenu.style.display==="block";
-                    submenu.style.display = isOpen? "none":"block";
-                    li.classList.toggle("open",!isOpen);
+                    submenu.style.display = isOpen ? "none" : "block";
+                    li.classList.toggle("open", !isOpen);
                     section.scrollIntoView({behavior:"smooth"});
                 });
 
@@ -104,11 +86,9 @@ async function getTutorialFiles() {
             }
 
             menu.appendChild(li);
-
+            i++;
         } catch(e){
-            const failSection = document.createElement("section");
-            failSection.innerHTML = `<h1>加载失败: ${file}</h1><p>${e}</p>`;
-            content.appendChild(failSection);
+            break; // 文件不存在或无法加载，停止循环
         }
     }
 
