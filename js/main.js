@@ -7,9 +7,8 @@ const tutorials = [
     "tutorials/02_进阶教程.html"
 ];
 
-// 自动生成菜单 & 加载内容
 (async function loadTutorials(){
-    // 清空教程内容（保留顶部板块）
+    // 保留顶部板块
     const topPanel = document.querySelector(".top-panel");
     content.innerHTML = "";
     content.appendChild(topPanel);
@@ -62,7 +61,7 @@ const tutorials = [
 
                 li.appendChild(ulSub);
 
-                // 点击主菜单显示/隐藏子菜单
+                // 点击主菜单展开/收起子菜单（不滚动菜单）
                 a.addEventListener("click", e=>{
                     e.preventDefault();
                     const submenu = li.querySelector(".submenu");
@@ -70,6 +69,7 @@ const tutorials = [
                         const isOpen = submenu.style.display==="block";
                         submenu.style.display = isOpen? "none":"block";
                         li.classList.toggle("open",!isOpen);
+                        // 只滚动右侧内容
                         section.scrollIntoView({behavior:"smooth"});
                     }
                 });
@@ -93,7 +93,7 @@ const tutorials = [
     // 高亮菜单
     const menuLinks=document.querySelectorAll(".sidebar a");
     window.addEventListener("scroll", ()=>{
-        let fromTop = window.scrollY + 120;
+        let fromTop = window.scrollY + 100;
         menuLinks.forEach(link=>{
             const section=document.querySelector(link.getAttribute("href"));
             if(!section) return;
