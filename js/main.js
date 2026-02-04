@@ -1,21 +1,32 @@
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
 
-// 主菜单默认图标（统一颜色，可换）
+// 默认主菜单图标
 const defaultIcon = "fas fa-book";
 
-// 自动扫描教程文件（假设文件名已按顺序命名）
-const tutorialFiles = [
-    "tutorials/01_基础入门.html",
-    "tutorials/02_进阶教程.html",
-    "tutorials/03_高级技巧.html"
-    // 新教程直接加到这里即可
-];
+// 自动扫描 tutorials 文件夹
+async function getTutorialFiles() {
+    // 这里使用 GitHub Pages 静态文件，无法动态读取目录
+    // 所以我们采用一个 tricks：维护一个 index.json 文件
+    // index.json 内容示例：
+    // ["01_基础入门.html","02_进阶教程.html","03_高级技巧.html"]
+    try {
+        const res = await fetch("tutorials/index.json");
+        if (!res.ok) throw new Error("无法加载 tutorials/index.json");
+        const files = await res.json();
+        return files.map(f => "tutorials/" + f);
+    } catch(e) {
+        console.error(e);
+        return [];
+    }
+}
 
 (async function loadTutorials(){
     const topPanel = document.querySelector(".top-panel");
     content.innerHTML = "";
     content.appendChild(topPanel);
+
+    const tutorialFiles = await getTutorialFiles();
 
     for(let i=0;i<tutorialFiles.length;i++){
         const file = tutorialFiles[i];
