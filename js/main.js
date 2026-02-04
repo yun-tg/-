@@ -1,8 +1,7 @@
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
 
-// 教程文件列表
-// 注意：这里可以自定义每个主菜单图标 class，如 "fas fa-book"
+// 教程文件列表及主菜单图标（统一颜色）
 const tutorials = [
     {file:"tutorials/01_基础入门.html", icon:"fas fa-book"},
     {file:"tutorials/02_进阶教程.html", icon:"fas fa-cogs"}
@@ -26,12 +25,12 @@ const tutorials = [
             section.innerHTML = html;
             content.appendChild(section);
 
-            // 主标题
+            // 主标题 h1 加图标
             const h1 = section.querySelector("h1");
-            const mainTitle = h1? h1.innerText:"章节"+(i+1);
+            const iconClass = tutorials[i].icon;
             if(h1) {
                 const iconElem = document.createElement("i");
-                iconElem.className = tutorials[i].icon;
+                iconElem.className = iconClass;
                 h1.prepend(iconElem);
             }
 
@@ -39,7 +38,7 @@ const tutorials = [
             const li = document.createElement("li");
             const a = document.createElement("a");
             a.href="#"+section.id;
-            a.innerHTML = `<i class="${tutorials[i].icon}"></i>${mainTitle}`;
+            a.innerHTML = `<i class="${iconClass}"></i>${h1? h1.innerText : '章节'+(i+1)}`;
             li.appendChild(a);
 
             // 子章节 h2
@@ -54,13 +53,14 @@ const tutorials = [
                     const subA = document.createElement("a");
                     const subId = section.id+"-"+j;
                     h2.id=subId;
-                    subA.href="#"+subId;
-                    subA.textContent=h2.innerText;
-                    // 给 h2 添加图标
-                    const iconElem = document.createElement("i");
-                    iconElem.className = "fas fa-angle-right";
-                    h2.prepend(iconElem);
 
+                    // h2 左侧箭头图标
+                    const h2Icon = document.createElement("i");
+                    h2Icon.className = "fas fa-angle-right";
+                    h2.prepend(h2Icon);
+
+                    subA.href="#"+subId;
+                    subA.textContent = h2.innerText;
                     subA.addEventListener("click", e=>{
                         e.preventDefault();
                         document.getElementById(subId).scrollIntoView({behavior:"smooth"});
@@ -74,14 +74,13 @@ const tutorials = [
                 a.addEventListener("click", e=>{
                     e.preventDefault();
                     const submenu = li.querySelector(".submenu");
-                    if(submenu){
-                        const isOpen = submenu.style.display==="block";
-                        submenu.style.display = isOpen? "none":"block";
-                        li.classList.toggle("open",!isOpen);
-                        section.scrollIntoView({behavior:"smooth"});
-                    }
+                    const isOpen = submenu.style.display==="block";
+                    submenu.style.display = isOpen? "none":"block";
+                    li.classList.toggle("open",!isOpen);
+                    section.scrollIntoView({behavior:"smooth"});
                 });
-            }else{
+
+            } else {
                 a.addEventListener("click", e=>{
                     e.preventDefault();
                     section.scrollIntoView({behavior:"smooth"});
@@ -90,33 +89,34 @@ const tutorials = [
 
             menu.appendChild(li);
 
-        }catch(e){
-            const failSection=document.createElement("section");
-            failSection.innerHTML=`<h1>加载失败: ${tutorials[i].file}</h1><p>${e}</p>`;
+        } catch(e){
+            const failSection = document.createElement("section");
+            failSection.innerHTML = `<h1>加载失败: ${tutorials[i].file}</h1><p>${e}</p>`;
             content.appendChild(failSection);
         }
     }
 
-    // 段落开头图标
+    // 段落图标处理
     document.querySelectorAll(".section-card p").forEach(p=>{
-        const icon = p.dataset.icon;
-        if(icon){
+        const iconType = p.dataset.icon;
+        if(iconType){
             const iElem = document.createElement("i");
-            iElem.className = "fas fa-" + icon;
+            iElem.className = "fas fa-"+iconType;
+            iElem.dataset.type = iconType;
             p.prepend(iElem);
         }
     });
 
-    // 高亮菜单
-    const menuLinks=document.querySelectorAll(".sidebar a");
+    // 菜单高亮
+    const menuLinks = document.querySelectorAll(".sidebar a");
     window.addEventListener("scroll", ()=>{
         let fromTop = window.scrollY + 100;
         menuLinks.forEach(link=>{
-            const section=document.querySelector(link.getAttribute("href"));
+            const section = document.querySelector(link.getAttribute("href"));
             if(!section) return;
-            if(section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){
+            if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
                 link.classList.add("active");
-            }else{
+            } else {
                 link.classList.remove("active");
             }
         });
