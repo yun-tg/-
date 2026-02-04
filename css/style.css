@@ -11,25 +11,32 @@ body {font-family:"Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333;}
     color:#fff;
     overflow-y:auto;
     flex-shrink:0;
+    position:fixed; /* 固定位置，不随滚动 */
+    height:100%;
 }
 
-/* logo + 标题 */
+/* 网站名称 */
 .sidebar-header {
     text-align:center;
-    padding:20px 10px;
+    padding:30px 10px;
     border-bottom:1px solid #333;
 }
-.sidebar-header .logo {width:50px; height:50px; margin-bottom:10px;}
-.sidebar-header .site-title {font-size:18px; font-weight:bold; display:block;}
+.sidebar-header .site-title {
+    font-size:22px;
+    font-weight:bold;
+    color:#1e90ff;
+    display:block;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
 
 /* 菜单 */
 .sidebar ul {list-style:none;}
 .sidebar li {margin-bottom:5px; position:relative;}
 .sidebar a {
     color:#ccc; text-decoration:none; display:block;
-    padding:10px 15px; border-radius:5px;
+    padding:12px 15px; border-radius:5px;
     text-align:center;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 .sidebar a:hover {background:#444466; color:#fff;}
 .sidebar a.active {background:#1e90ff; color:#fff;}
@@ -38,7 +45,7 @@ body {font-family:"Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333;}
 .submenu {display:none; list-style:none; padding-left:15px;}
 .submenu li a {font-size:14px; text-align:center;}
 
-/* 有子菜单符号 */
+/* 主菜单符号 */
 .has-sub > a::after {
     content:'▶';
     position:absolute;
@@ -49,6 +56,7 @@ body {font-family:"Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333;}
 
 /* 右侧内容 */
 .content {
+    margin-left:250px; /* 留出菜单宽度 */
     flex-grow:1;
     padding:30px;
     overflow-y:auto;
@@ -71,7 +79,7 @@ body {font-family:"Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333;}
     width:90%; max-width:900px;
     background:#fff;
     border-radius:8px;
-    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
     padding:25px;
     margin-bottom:30px;
 }
@@ -84,9 +92,6 @@ html {scroll-behavior:smooth;}
 
 /* 响应式设计：手机 */
 @media(max-width:768px){
-    .container {flex-direction:column;}
-    .sidebar {width:100%; display:flex; overflow-x:auto;}
-    .sidebar ul {display:flex; flex-wrap:nowrap;}
-    .sidebar li {margin:0 5px;}
-    .sidebar a {padding:8px;}
+    .sidebar {position:relative; width:100%; height:auto;}
+    .content {margin-left:0;}
 }
