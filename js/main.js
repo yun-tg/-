@@ -1,11 +1,15 @@
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
 
-// 教程文件列表及主菜单图标（统一颜色）
-const tutorials = [
-    {file:"tutorials/01_基础入门.html", icon:"fas fa-book"},
-    {file:"tutorials/02_进阶教程.html", icon:"fas fa-cogs"},
-    {file:"tutorials/03_高级技巧.html", icon:"fas fa-star"} // 新教程只需加这一行
+// 主菜单默认图标（统一颜色，可换）
+const defaultIcon = "fas fa-book";
+
+// 自动扫描教程文件（假设文件名已按顺序命名）
+const tutorialFiles = [
+    "tutorials/01_基础入门.html",
+    "tutorials/02_进阶教程.html",
+    "tutorials/03_高级技巧.html"
+    // 新教程直接加到这里即可
 ];
 
 (async function loadTutorials(){
@@ -13,13 +17,14 @@ const tutorials = [
     content.innerHTML = "";
     content.appendChild(topPanel);
 
-    for(let i=0;i<tutorials.length;i++){
+    for(let i=0;i<tutorialFiles.length;i++){
+        const file = tutorialFiles[i];
         try{
-            const res = await fetch(tutorials[i].file);
-            if(!res.ok) throw new Error("无法加载: "+tutorials[i].file);
+            const res = await fetch(file);
+            if(!res.ok) throw new Error("无法加载: "+file);
             const html = await res.text();
 
-            // 创建卡片
+            // 创建右侧卡片
             const section = document.createElement("section");
             section.id = "section"+i;
             section.classList.add("section-card");
@@ -28,18 +33,17 @@ const tutorials = [
 
             // 主标题 h1 加图标
             const h1 = section.querySelector("h1");
-            const iconClass = tutorials[i].icon;
             if(h1) {
                 const iconElem = document.createElement("i");
-                iconElem.className = iconClass;
+                iconElem.className = defaultIcon;
                 h1.prepend(iconElem);
             }
 
-            // 创建菜单主项
+            // 创建左侧菜单主项
             const li = document.createElement("li");
             const a = document.createElement("a");
             a.href="#"+section.id;
-            a.innerHTML = `<i class="${iconClass}"></i>${h1? h1.innerText : '章节'+(i+1)}`;
+            a.innerHTML = `<i class="${defaultIcon}"></i>${h1? h1.innerText : '章节'+(i+1)}`;
             li.appendChild(a);
 
             // 子章节 h2
@@ -92,7 +96,7 @@ const tutorials = [
 
         } catch(e){
             const failSection = document.createElement("section");
-            failSection.innerHTML = `<h1>加载失败: ${tutorials[i].file}</h1><p>${e}</p>`;
+            failSection.innerHTML = `<h1>加载失败: ${file}</h1><p>${e}</p>`;
             content.appendChild(failSection);
         }
     }
