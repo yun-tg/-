@@ -1,7 +1,7 @@
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
 
-// 教程文件列表（必须和 tutorials 文件夹文件名一致）
+// 教程文件列表
 const tutorials = [
     "tutorials/01_基础入门.html",
     "tutorials/02_进阶教程.html"
@@ -22,7 +22,7 @@ const tutorials = [
             section.innerHTML = html;
             content.appendChild(section);
 
-            // 获取主标题
+            // 主标题
             const h1 = section.querySelector("h1");
             const mainTitle = h1 ? h1.innerText : "章节" + (i+1);
 
@@ -33,23 +33,26 @@ const tutorials = [
             a.textContent = mainTitle;
             a.addEventListener("click", e => {
                 e.preventDefault();
+                // 显示/隐藏子菜单
+                const submenu = li.querySelector(".submenu");
+                if(submenu) submenu.style.display = submenu.style.display === "block" ? "none" : "block";
                 section.scrollIntoView({behavior:"smooth"});
             });
             li.appendChild(a);
 
-            // 查找子章节 h2
+            // 子章节 h2
             const h2s = section.querySelectorAll("h2");
-            if (h2s.length > 0) {
+            if(h2s.length > 0){
                 const ulSub = document.createElement("ul");
                 ulSub.classList.add("submenu");
-                h2s.forEach((h2, j) => {
+                h2s.forEach((h2,j)=>{
                     const subLi = document.createElement("li");
                     const subA = document.createElement("a");
                     const subId = section.id + "-" + j;
-                    h2.id = subId; // 给 h2 添加 id
+                    h2.id = subId;
                     subA.href = "#" + subId;
                     subA.textContent = h2.innerText;
-                    subA.addEventListener("click", e => {
+                    subA.addEventListener("click", e=>{
                         e.preventDefault();
                         document.getElementById(subId).scrollIntoView({behavior:"smooth"});
                     });
@@ -61,23 +64,23 @@ const tutorials = [
 
             menu.appendChild(li);
 
-        } catch(e) {
+        } catch(e){
             const failSection = document.createElement("section");
             failSection.innerHTML = `<h1>加载失败: ${tutorials[i]}</h1><p>${e}</p>`;
             content.appendChild(failSection);
         }
     }
 
-    // 高亮当前菜单
+    // 高亮菜单
     const menuLinks = document.querySelectorAll(".sidebar a");
     window.addEventListener("scroll", () => {
-        let fromTop = window.scrollY + 100;
+        let fromTop = window.scrollY + 120; // header高度
         menuLinks.forEach(link => {
             const section = document.querySelector(link.getAttribute("href"));
-            if (!section) return;
-            if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+            if(!section) return;
+            if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
                 link.classList.add("active");
-            } else {
+            }else{
                 link.classList.remove("active");
             }
         });
