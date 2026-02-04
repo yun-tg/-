@@ -11,7 +11,7 @@ body {
   border-right: 1px solid #1e293b;
 }
 
-/* ===== LOGO区域 ===== */
+/* ===== LOGO区域 ===== 
 .sidebar::before {
   content: "";
   display: block;
@@ -19,7 +19,18 @@ body {
   background: url('../img/logo.png')
   background-size: 110px;
   border-bottom: 1px solid #1e293b;
+}*/
+/* ===== LOGO区域 ===== */
+.sidebar::before {
+  content: "";
+  display: block;
+  height: 130px;               /* LOGO 区域高度 */
+  margin-bottom: 10px;         /* LOGO 和菜单间距 */
+  background: url('../img/logo.png') center center no-repeat;
+  background-size: 110px auto; /* 保持宽高比例 */
+  border-bottom: 1px solid #1e293b;
 }
+
 
 /* ===== 站点名称隐藏（只显示LOGO）===== */
 .app-name {
