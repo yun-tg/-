@@ -54,3 +54,72 @@ const tutorials = [
                     const subA = document.createElement("a");
                     const subId = section.id+"-"+j;
                     h2.id=subId;
+                    subA.href="#"+subId;
+                    subA.textContent=h2.innerText;
+                    // 给 h2 添加图标
+                    const iconElem = document.createElement("i");
+                    iconElem.className = "fas fa-angle-right";
+                    h2.prepend(iconElem);
+
+                    subA.addEventListener("click", e=>{
+                        e.preventDefault();
+                        document.getElementById(subId).scrollIntoView({behavior:"smooth"});
+                    });
+                    subLi.appendChild(subA);
+                    ulSub.appendChild(subLi);
+                });
+
+                li.appendChild(ulSub);
+
+                a.addEventListener("click", e=>{
+                    e.preventDefault();
+                    const submenu = li.querySelector(".submenu");
+                    if(submenu){
+                        const isOpen = submenu.style.display==="block";
+                        submenu.style.display = isOpen? "none":"block";
+                        li.classList.toggle("open",!isOpen);
+                        section.scrollIntoView({behavior:"smooth"});
+                    }
+                });
+            }else{
+                a.addEventListener("click", e=>{
+                    e.preventDefault();
+                    section.scrollIntoView({behavior:"smooth"});
+                });
+            }
+
+            menu.appendChild(li);
+
+        }catch(e){
+            const failSection=document.createElement("section");
+            failSection.innerHTML=`<h1>加载失败: ${tutorials[i].file}</h1><p>${e}</p>`;
+            content.appendChild(failSection);
+        }
+    }
+
+    // 段落开头图标
+    document.querySelectorAll(".section-card p").forEach(p=>{
+        const icon = p.dataset.icon;
+        if(icon){
+            const iElem = document.createElement("i");
+            iElem.className = "fas fa-" + icon;
+            p.prepend(iElem);
+        }
+    });
+
+    // 高亮菜单
+    const menuLinks=document.querySelectorAll(".sidebar a");
+    window.addEventListener("scroll", ()=>{
+        let fromTop = window.scrollY + 100;
+        menuLinks.forEach(link=>{
+            const section=document.querySelector(link.getAttribute("href"));
+            if(!section) return;
+            if(section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){
+                link.classList.add("active");
+            }else{
+                link.classList.remove("active");
+            }
+        });
+    });
+
+})();
