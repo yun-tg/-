@@ -4,7 +4,8 @@ const content = document.getElementById("content");
 // 教程文件列表及主菜单图标（统一颜色）
 const tutorials = [
     {file:"tutorials/01_基础入门.html", icon:"fas fa-book"},
-    {file:"tutorials/02_进阶教程.html", icon:"fas fa-cogs"}
+    {file:"tutorials/02_进阶教程.html", icon:"fas fa-cogs"},
+    {file:"tutorials/03_高级技巧.html", icon:"fas fa-star"} // 新教程只需加这一行
 ];
 
 (async function loadTutorials(){
