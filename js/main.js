@@ -1,7 +1,7 @@
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
-const defaultIcon = "fas fa-book"; // 主菜单统一图标
-const maxTutorials = 100; // 最大尝试加载教程数量
+const defaultIcon = "fas fa-book"; 
+const maxTutorials = 100; 
 
 (async function loadTutorials() {
     const topPanel = document.querySelector(".top-panel");
@@ -14,17 +14,15 @@ const maxTutorials = 100; // 最大尝试加载教程数量
         let file = `tutorials/${num}_教程.html`;
         try{
             const res = await fetch(file);
-            if(!res.ok) break; // 文件不存在，停止
+            if(!res.ok) break;
             const html = await res.text();
 
-            // 创建右侧卡片
             const section = document.createElement("section");
             section.id = "section"+i;
             section.classList.add("section-card");
             section.innerHTML = html;
             content.appendChild(section);
 
-            // 主标题 h1 加图标
             const h1 = section.querySelector("h1");
             if(h1){
                 const iconElem = document.createElement("i");
@@ -32,14 +30,12 @@ const maxTutorials = 100; // 最大尝试加载教程数量
                 h1.prepend(iconElem);
             }
 
-            // 左侧菜单主项
             const li = document.createElement("li");
             const a = document.createElement("a");
             a.href = "#"+section.id;
             a.innerHTML = `<i class="${defaultIcon}"></i>${h1? h1.innerText : '章节'+i}`;
             li.appendChild(a);
 
-            // 子章节 h2
             const h2s = section.querySelectorAll("h2");
             if(h2s.length > 0){
                 li.classList.add("has-sub");
@@ -52,7 +48,6 @@ const maxTutorials = 100; // 最大尝试加载教程数量
                     const subId = section.id + "-" + j;
                     h2.id = subId;
 
-                    // h2 左侧箭头图标
                     const h2Icon = document.createElement("i");
                     h2Icon.className = "fas fa-angle-right";
                     h2.prepend(h2Icon);
@@ -88,11 +83,10 @@ const maxTutorials = 100; // 最大尝试加载教程数量
             menu.appendChild(li);
             i++;
         } catch(e){
-            break; // 文件不存在或无法加载，停止循环
+            break;
         }
     }
 
-    // 段落图标处理
     document.querySelectorAll(".section-card p").forEach(p=>{
         const iconType = p.dataset.icon;
         if(iconType){
@@ -103,7 +97,6 @@ const maxTutorials = 100; // 最大尝试加载教程数量
         }
     });
 
-    // 菜单高亮
     const menuLinks = document.querySelectorAll(".sidebar a");
     window.addEventListener("scroll", ()=>{
         let fromTop = window.scrollY + 100;
