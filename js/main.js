@@ -1,28 +1,37 @@
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
-const defaultIcon = "fas fa-book"; 
-const maxTutorials = 100; 
+
+// 在这里填你的教程文件名，按显示顺序写即可
+const tutorialFiles = [
+  "01_基础入门.html",
+  "02_进阶教程.html",
+  "03_高级技巧.html"
+];
+
+const defaultIcon = "fas fa-book"; // 主菜单图标
 
 (async function loadTutorials() {
     const topPanel = document.querySelector(".top-panel");
     content.innerHTML = "";
     content.appendChild(topPanel);
 
-    let i = 1;
-    while(i <= maxTutorials){
-        let num = i.toString().padStart(2,"0");
-        let file = `tutorials/${num}_教程.html`;
+    for(let i=0; i<tutorialFiles.length; i++){
+        const file = "tutorials/" + tutorialFiles[i];
         try{
             const res = await fetch(file);
-            if(!res.ok) break;
+            if(!res.ok){
+                console.warn(file + " 加载失败");
+                continue;
+            }
             const html = await res.text();
 
             const section = document.createElement("section");
-            section.id = "section"+i;
+            section.id = "section" + (i+1);
             section.classList.add("section-card");
             section.innerHTML = html;
             content.appendChild(section);
 
+            // 主标题 h1 加图标
             const h1 = section.querySelector("h1");
             if(h1){
                 const iconElem = document.createElement("i");
@@ -30,12 +39,14 @@ const maxTutorials = 100;
                 h1.prepend(iconElem);
             }
 
+            // 左侧菜单
             const li = document.createElement("li");
             const a = document.createElement("a");
             a.href = "#"+section.id;
-            a.innerHTML = `<i class="${defaultIcon}"></i>${h1? h1.innerText : '章节'+i}`;
+            a.innerHTML = `<i class="${defaultIcon}"></i>${h1 ? h1.innerText : '章节'+(i+1)}`;
             li.appendChild(a);
 
+            // 子标题 h2
             const h2s = section.querySelectorAll("h2");
             if(h2s.length > 0){
                 li.classList.add("has-sub");
@@ -48,6 +59,7 @@ const maxTutorials = 100;
                     const subId = section.id + "-" + j;
                     h2.id = subId;
 
+                    // h2 左侧箭头图标
                     const h2Icon = document.createElement("i");
                     h2Icon.className = "fas fa-angle-right";
                     h2.prepend(h2Icon);
@@ -81,12 +93,13 @@ const maxTutorials = 100;
             }
 
             menu.appendChild(li);
-            i++;
+
         } catch(e){
-            break;
+            console.error(file + " 加载出错", e);
         }
     }
 
+    // 段落图标
     document.querySelectorAll(".section-card p").forEach(p=>{
         const iconType = p.dataset.icon;
         if(iconType){
@@ -97,6 +110,7 @@ const maxTutorials = 100;
         }
     });
 
+    // 菜单高亮
     const menuLinks = document.querySelectorAll(".sidebar a");
     window.addEventListener("scroll", ()=>{
         let fromTop = window.scrollY + 100;
