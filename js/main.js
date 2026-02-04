@@ -8,50 +8,47 @@ const tutorials = [
 ];
 
 // 自动生成菜单 & 加载内容
-(async function loadTutorials() {
+(async function loadTutorials(){
     content.innerHTML = "";
 
-    for (let i = 0; i < tutorials.length; i++) {
-        try {
+    for(let i=0;i<tutorials.length;i++){
+        try{
             const res = await fetch(tutorials[i]);
-            if (!res.ok) throw new Error("无法加载: " + tutorials[i]);
+            if(!res.ok) throw new Error("无法加载: "+tutorials[i]);
             const html = await res.text();
 
+            // 创建卡片
             const section = document.createElement("section");
-            section.id = "section" + i;
+            section.id = "section"+i;
+            section.classList.add("section-card");
             section.innerHTML = html;
             content.appendChild(section);
 
             // 主标题
             const h1 = section.querySelector("h1");
-            const mainTitle = h1 ? h1.innerText : "章节" + (i+1);
+            const mainTitle = h1? h1.innerText:"章节"+(i+1);
 
             // 创建菜单主项
             const li = document.createElement("li");
             const a = document.createElement("a");
-            a.href = "#" + section.id;
-            a.textContent = mainTitle;
-            a.addEventListener("click", e => {
-                e.preventDefault();
-                // 显示/隐藏子菜单
-                const submenu = li.querySelector(".submenu");
-                if(submenu) submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-                section.scrollIntoView({behavior:"smooth"});
-            });
+            a.href="#"+section.id;
+            a.textContent=mainTitle;
             li.appendChild(a);
 
             // 子章节 h2
             const h2s = section.querySelectorAll("h2");
-            if(h2s.length > 0){
+            if(h2s.length>0){
+                li.classList.add("has-sub");
                 const ulSub = document.createElement("ul");
                 ulSub.classList.add("submenu");
+
                 h2s.forEach((h2,j)=>{
                     const subLi = document.createElement("li");
                     const subA = document.createElement("a");
-                    const subId = section.id + "-" + j;
-                    h2.id = subId;
-                    subA.href = "#" + subId;
-                    subA.textContent = h2.innerText;
+                    const subId = section.id+"-"+j;
+                    h2.id=subId;
+                    subA.href="#"+subId;
+                    subA.textContent=h2.innerText;
                     subA.addEventListener("click", e=>{
                         e.preventDefault();
                         document.getElementById(subId).scrollIntoView({behavior:"smooth"});
@@ -59,26 +56,45 @@ const tutorials = [
                     subLi.appendChild(subA);
                     ulSub.appendChild(subLi);
                 });
+
                 li.appendChild(ulSub);
+
+                // 点击主菜单显示/隐藏子菜单
+                a.addEventListener("click", e=>{
+                    e.preventDefault();
+                    const submenu = li.querySelector(".submenu");
+                    if(submenu){
+                        const isOpen = submenu.style.display==="block";
+                        submenu.style.display = isOpen? "none":"block";
+                        li.classList.toggle("open",!isOpen);
+                        section.scrollIntoView({behavior:"smooth"});
+                    }
+                });
+            }else{
+                // 没有子菜单直接滚动
+                a.addEventListener("click", e=>{
+                    e.preventDefault();
+                    section.scrollIntoView({behavior:"smooth"});
+                });
             }
 
             menu.appendChild(li);
 
-        } catch(e){
-            const failSection = document.createElement("section");
-            failSection.innerHTML = `<h1>加载失败: ${tutorials[i]}</h1><p>${e}</p>`;
+        }catch(e){
+            const failSection=document.createElement("section");
+            failSection.innerHTML=`<h1>加载失败: ${tutorials[i]}</h1><p>${e}</p>`;
             content.appendChild(failSection);
         }
     }
 
     // 高亮菜单
-    const menuLinks = document.querySelectorAll(".sidebar a");
-    window.addEventListener("scroll", () => {
-        let fromTop = window.scrollY + 120; // header高度
-        menuLinks.forEach(link => {
-            const section = document.querySelector(link.getAttribute("href"));
+    const menuLinks=document.querySelectorAll(".sidebar a");
+    window.addEventListener("scroll", ()=>{
+        let fromTop = window.scrollY + 100;
+        menuLinks.forEach(link=>{
+            const section=document.querySelector(link.getAttribute("href"));
             if(!section) return;
-            if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
+            if(section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){
                 link.classList.add("active");
             }else{
                 link.classList.remove("active");
