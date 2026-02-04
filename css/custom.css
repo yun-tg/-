@@ -16,7 +16,7 @@ body {
   content: "";
   display: block;
   height: 130px;
-  background: url('../imag/logo.png') center no-repeat;
+  background: url('../img/logo.png') center no-repeat;
   background-size: 110px;
   border-bottom: 1px solid #1e293b;
 }
