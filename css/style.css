@@ -39,7 +39,7 @@ body {font-family:"Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333;}
     justify-content:center;
     transition: background 0.3s, color 0.3s;
 }
-.sidebar a i {margin-right:8px;}
+.sidebar a i {margin-right:8px; color:#1e90ff;}
 .sidebar a:hover {background:#444466; color:#fff;}
 .sidebar a.active {background:#1e90ff; color:#fff;}
 
@@ -97,8 +97,22 @@ body {font-family:"Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333;}
 .section-card p {
     margin-bottom:15px; line-height:1.6;
     display:flex; align-items:center;
+    opacity:0;
+    transform: translateY(5px);
+    animation:fadeInUp 0.6s forwards;
 }
-.section-card p i {margin-right:6px; color:#4caf50;}
+.section-card p i {margin-right:6px;}
+/* 段落图标颜色 */
+.section-card p i[data-type="check"] {color:#4caf50;}
+.section-card p i[data-type="star"] {color:#ff9800;}
+.section-card p i[data-type="lightning"] {color:#ffeb3b;}
+
+/* 段落动画 */
+@keyframes fadeInUp {
+    from {opacity:0; transform: translateY(5px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
 .section-card img {max-width:100%; border-radius:6px; margin-bottom:15px;}
 
 html {scroll-behavior:smooth;}
