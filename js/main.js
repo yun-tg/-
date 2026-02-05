@@ -1,128 +1,65 @@
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
 
-// 在这里填你的教程文件名，按显示顺序写即可
 const tutorialFiles = [
   "01_基础入门.html",
   "02_进阶教程.html",
   "03_高级技巧.html"
 ];
 
-const defaultIcon = "fas fa-book"; // 主菜单图标
-
-(async function loadTutorials() {
-    const topPanel = document.querySelector(".top-panel");
-    content.innerHTML = "";
-    content.appendChild(topPanel);
-
-    for(let i=0; i<tutorialFiles.length; i++){
+(async ()=>{
+    for(let i=0;i<tutorialFiles.length;i++){
         const file = "tutorials/" + tutorialFiles[i];
-        try{
-            const res = await fetch(file);
-            if(!res.ok){
-                console.warn(file + " 加载失败");
-                continue;
-            }
-            const html = await res.text();
+        const res = await fetch(file);
+        if(!res.ok) continue;
 
-            const section = document.createElement("section");
-            section.id = "section" + (i+1);
-            section.classList.add("section-card");
-            section.innerHTML = html;
-            content.appendChild(section);
+        const html = await res.text();
 
-            // 主标题 h1 加图标
-            const h1 = section.querySelector("h1");
-            if(h1){
-                const iconElem = document.createElement("i");
-                iconElem.className = defaultIcon;
-                h1.prepend(iconElem);
-            }
+        const section = document.createElement("section");
+        section.className = "section-card";
+        section.id = "section"+(i+1);
+        section.innerHTML = html;
+        content.appendChild(section);
 
-            // 左侧菜单
-            const li = document.createElement("li");
-            const a = document.createElement("a");
-            a.href = "#"+section.id;
-            a.innerHTML = `<i class="${defaultIcon}"></i>${h1 ? h1.innerText : '章节'+(i+1)}`;
-            li.appendChild(a);
-
-            // 子标题 h2
-            const h2s = section.querySelectorAll("h2");
-            if(h2s.length > 0){
-                li.classList.add("has-sub");
-                const ulSub = document.createElement("ul");
-                ulSub.classList.add("submenu");
-
-                h2s.forEach((h2,j)=>{
-                    const subLi = document.createElement("li");
-                    const subA = document.createElement("a");
-                    const subId = section.id + "-" + j;
-                    h2.id = subId;
-
-                    // h2 左侧箭头图标
-                    const h2Icon = document.createElement("i");
-                    h2Icon.className = "fas fa-angle-right";
-                    h2.prepend(h2Icon);
-
-                    subA.href = "#" + subId;
-                    subA.textContent = h2.innerText;
-                    subA.addEventListener("click", e=>{
-                        e.preventDefault();
-                        document.getElementById(subId).scrollIntoView({behavior:"smooth"});
-                    });
-                    subLi.appendChild(subA);
-                    ulSub.appendChild(subLi);
-                });
-
-                li.appendChild(ulSub);
-
-                a.addEventListener("click", e=>{
-                    e.preventDefault();
-                    const submenu = li.querySelector(".submenu");
-                    const isOpen = submenu.style.display==="block";
-                    submenu.style.display = isOpen ? "none" : "block";
-                    li.classList.toggle("open", !isOpen);
-                    section.scrollIntoView({behavior:"smooth"});
-                });
-
-            } else {
-                a.addEventListener("click", e=>{
-                    e.preventDefault();
-                    section.scrollIntoView({behavior:"smooth"});
-                });
-            }
-
-            menu.appendChild(li);
-
-        } catch(e){
-            console.error(file + " 加载出错", e);
+        const h1 = section.querySelector("h1");
+        if(h1){
+            h1.insertAdjacentHTML("afterbegin",'<i class="fas fa-book"></i>');
         }
+
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.innerHTML = `<i class="fas fa-book"></i>${h1.innerText}`;
+        li.appendChild(a);
+
+        const h2s = section.querySelectorAll("h2");
+        if(h2s.length){
+            li.classList.add("has-sub");
+            const ul = document.createElement("ul");
+            ul.className="submenu";
+
+            h2s.forEach((h2,j)=>{
+                h2.id = section.id+"-"+j;
+                h2.insertAdjacentHTML("afterbegin","<i class='fas fa-angle-right'></i>");
+
+                const sa = document.createElement("a");
+                sa.textContent = h2.innerText;
+                sa.href="#"+h2.id;
+
+                const sli = document.createElement("li");
+                sli.appendChild(sa);
+                ul.appendChild(sli);
+            });
+
+            li.appendChild(ul);
+            a.onclick=()=>{ul.style.display=ul.style.display==="block"?"none":"block";li.classList.toggle("open")};
+        }
+
+        menu.appendChild(li);
     }
 
-    // 段落图标
-    document.querySelectorAll(".section-card p").forEach(p=>{
-        const iconType = p.dataset.icon;
-        if(iconType){
-            const iElem = document.createElement("i");
-            iElem.className = "fas fa-"+iconType;
-            iElem.dataset.type = iconType;
-            p.prepend(iElem);
-        }
+    document.querySelectorAll("p[data-icon]").forEach(p=>{
+        p.insertAdjacentHTML("afterbegin",
+          `<i class="fas fa-${p.dataset.icon}" data-type="${p.dataset.icon}"></i>`
+        );
     });
-
-    // 菜单高亮
-    const menuLinks = document.querySelectorAll(".sidebar a");
-    window.addEventListener("scroll", ()=>{
-        let fromTop = window.scrollY + 100;
-        menuLinks.forEach(link=>{
-            const section = document.querySelector(link.getAttribute("href"));
-            if(!section) return;
-            if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
-                link.classList.add("active");
-            } else {
-                link.classList.remove("active");
-            }
-        });
-    });
-
 })();
