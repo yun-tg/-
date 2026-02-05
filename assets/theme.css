@@ -1,0 +1,29 @@
+/* 内容居中 */
+.markdown-section {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* Banner 圆角 */
+.markdown-section img {
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+/* 表格美化 */
+.markdown-section table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 菜单字体 */
+.sidebar {
+  font-size: 14px;
+}
+
+/* 菜单图标对齐 */
+.sidebar li a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
