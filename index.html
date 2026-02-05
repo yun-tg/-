@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>云端漫步-TG云控</title>
 
-  <link rel="stylesheet" href="./css/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-</head>
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
+
 <div class="app">
 
+  <!-- 左侧菜单 -->
   <aside class="sidebar">
-    <div class="site-title">
-      ✈ 云端漫步-TG云控
+    <div class="site-header">
+      <div class="site-name">
+        <i class="fa-solid fa-paper-plane"></i>
+        云端漫步-TG云控
+      </div>
       <div class="site-sub">完整使用教程</div>
     </div>
 
-    <ul class="menu">
-
-      <li class="menu-group" onclick="toggleMenu(this)">
-        📘 基础教程
-        <ul class="submenu">
-          <li onclick="loadPage('tutorials/01_基础入门.md')">基础入门</li>
-        </ul>
-      </li>
-
-      <li class="menu-group" onclick="toggleMenu(this)">
-        🚀 进阶教程
-        <ul class="submenu">
-          <li onclick="loadPage('tutorials/02_进阶使用.md')">进阶使用</li>
-        </ul>
-      </li>
-
-    </ul>
+    <div id="menu"></div>
   </aside>
 
-  <main class="content" id="content"></main>
+  <!-- 右侧内容 -->
+  <main class="content">
+    <div id="article"></div>
+  </main>
 
 </div>
 
-<script src="./js/main.js"></script>
-<script>
-  loadPage("tutorials/01_基础入门.md");
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
