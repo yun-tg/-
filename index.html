@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <title>云端漫步 · TG云控</title>
+  <meta charset="UTF-8">
+  <title>云端漫步 · 教程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Docsify -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-
-  <!-- 字体图标 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
-
-  <!-- 主题样式 -->
-  <link rel="stylesheet" href="assets/theme.css">
-
+  <!-- Docsify 样式 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="./assets/theme.css">
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">加载中...</div>
 
   <script>
     window.$docsify = {
-      name: '云端漫步 · TG云控',
+      name: '云端漫步',
       repo: '',
+
+      // 关键配置（这三个决定你现在的问题）
       loadSidebar: true,
-      subMaxLevel: 3,
+      loadNavbar: false,
       auto2top: true,
-      coverpage: false,
-      homepage: 'README.md'
+
+      // 文档根目录（重点）
+      basePath: './',
+
+      // 首页
+      homepage: 'README.md',
+
+      subMaxLevel: 2,
     }
   </script>
+
+  <!-- Docsify 主脚本 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
