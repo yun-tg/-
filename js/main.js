@@ -1,20 +1,31 @@
-const content = document.getElementById("content");
+const article = document.getElementById("article");
 
-function loadPage(mdFile) {
-  Promise.all([
-    fetch("tutorials/top.md").then(r => r.text()),
-    fetch(mdFile).then(r => r.text())
-  ])
-  .then(([topMd, bodyMd]) => {
-    content.innerHTML =
-      marked.parse(topMd) +
-      "<hr style='margin:40px 0'>" +
-      marked.parse(bodyMd);
+async function loadMarkdown(file) {
+  article.innerHTML = "";
 
-    content.scrollTop = 0;
-  })
-  .catch(() => {
-    content.innerHTML = "<p>教程加载失败</p>";
-  });
+  try {
+    // 先加载 top.md
+    const topRes = await fetch("tutorials/top.md");
+    const topText = await topRes.text();
+    article.innerHTML += marked.parse(topText);
+
+    // 再加载点击的教程
+    if (file) {
+      const res = await fetch("tutorials/" + file);
+      const text = await res.text();
+      article.innerHTML += marked.parse(text);
+    }
+  } catch {
+    article.innerHTML = "教程加载失败";
+  }
 }
 
+// 绑定子菜单点击
+document.querySelectorAll(".submenu li").forEach(li => {
+  li.addEventListener("click", () => {
+    loadMarkdown(li.dataset.md);
+  });
+});
+
+// 默认加载
+loadMarkdown();
