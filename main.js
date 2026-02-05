@@ -18,7 +18,6 @@ const menuData = [
 
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
-
 let firstLoaded = false;
 
 menuData.forEach((group, gi) => {
@@ -28,7 +27,7 @@ menuData.forEach((group, gi) => {
   const title = document.createElement("div");
   title.className = "menu-title";
   title.innerHTML = `
-    <span><i class="fa-solid ${group.icon}"></i> ${group.title}</span>
+    <span><i class="fa-solid ${group.icon}"></i>${group.title}</span>
     <i class="fa-solid fa-chevron-down arrow"></i>
   `;
 
@@ -61,18 +60,12 @@ menuData.forEach((group, gi) => {
 
 function loadMarkdown(file) {
   fetch(file)
-    .then(r => {
-      if (!r.ok) throw new Error("404");
-      return r.text();
-    })
+    .then(r => r.text())
     .then(md => {
       content.innerHTML = `
-        <img src="images/banner.png" style="width:100%;border-radius:12px;margin-bottom:20px;">
+        <img src="images/banner.png" style="width:100%;border-radius:12px;margin-bottom:24px;">
         ${marked.parse(md)}
       `;
       window.scrollTo({ top: 0, behavior: "smooth" });
-    })
-    .catch(() => {
-      content.innerHTML = "❌ 教程加载失败（请确认 tutorials 文件存在）";
     });
 }
