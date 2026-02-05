@@ -1,135 +1,128 @@
 * {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body {
   margin: 0;
-  background: #f2f4f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f4f6;
 }
 
+/* 布局 */
 .app {
   display: flex;
   height: 100vh;
 }
 
-/* ========== 左侧菜单 ========== */
+/* 左侧栏 */
 .sidebar {
-  width: 260px;
-  background: linear-gradient(180deg, #1f2933, #111827);
-  color: #fff;
-  padding: 20px 16px;
+  width: 270px;
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 18px 14px;
+  overflow-y: auto;
 }
 
-.site-title {
+/* 站名 */
+.site-header {
+  margin-bottom: 18px;
+}
+
+.site-name {
   font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 4px;
+  font-weight: bold;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .site-sub {
   font-size: 12px;
-  opacity: 0.7;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* 菜单 */
+.menu-group {
+  margin-top: 12px;
+}
+
+.menu-group-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 6px 4px;
+}
+
+.menu-group-title i {
+  color: #38bdf8;
+}
+
+.menu-items {
+  margin-left: 22px;
+}
+
+.menu-item {
+  padding: 4px 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+.menu-item:hover {
+  color: #fff;
+}
+
+/* 右侧内容 */
+.content {
+  flex: 1;
+  padding: 28px;
+  overflow-y: auto;
+}
+
+/* 横幅 */
+.banner img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+/* 功能表格 */
+.feature-table {
+  width: 100%;
+  border-collapse: collapse;
   margin-bottom: 20px;
 }
 
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu-group {
-  margin-bottom: 10px;
-  cursor: pointer;
-  padding: 10px 12px;
-  border-radius: 8px;
-  transition: background 0.2s;
-}
-
-.menu-group:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.menu-group > ul {
-  list-style: none;
-  padding-left: 16px;
-  margin-top: 8px;
-  display: none;
-}
-
-.menu-group.open > ul {
-  display: block;
-}
-
-.menu-group li {
-  font-size: 14px;
-  padding: 6px 0;
-  cursor: pointer;
-  opacity: 0.85;
-}
-
-.menu-group li:hover {
-  opacity: 1;
-}
-
-/* ========== 右侧内容区域 ========== */
-.content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 40px 0;
-}
-
-/* 内容居中容器 */
-.content-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* ========== 顶部横幅 ========== */
-.top-box {
-  background: #ffffff;
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 24px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-}
-
-.top-box img {
-  width: 100%;
-  display: block;
-}
-
-.top-box table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-}
-
-.top-box th,
-.top-box td {
+.feature-table th,
+.feature-table td {
   border: 1px solid #e5e7eb;
   padding: 10px;
-  font-size: 14px;
 }
 
-/* ========== 教程正文卡片 ========== */
-.doc-box {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 30px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+.feature-table th {
+  background: #f1f5f9;
 }
 
-.doc-box h1,
-.doc-box h2,
-.doc-box h3 {
-  margin-top: 24px;
+/* 教程卡片 */
+.article-card {
+  background: #fff;
+  padding: 26px;
+  border-radius: 12px;
+  line-height: 1.8;
 }
 
-.doc-box img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin: 16px 0;
+.article-card h1 {
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 8px;
+}
+
+/* 段落图标 */
+p.check::before {
+  content: "✔";
+  color: #22c55e;
+  margin-right: 6px;
 }
