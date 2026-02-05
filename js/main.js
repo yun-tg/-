@@ -1,89 +1,55 @@
-const menuEl = document.getElementById("menu");
-const articleEl = document.getElementById("article");
+const menu = document.getElementById("menu");
+const article = document.getElementById("article");
 
-const menus = {
-  "基础教程": {
-    icon: "fa-book",
-    files: [
-      "01-环境准备.md",
-      "02-安装说明.md"
-    ]
-  },
-  "进阶教程": {
-    icon: "fa-gears",
-    files: [
-      "01-高级配置.md"
-    ]
-  }
-};
+const files = [
+  { title: "基础教程", file: "tutorials/基础教程.md", icon: "fa-book" },
+  { title: "进阶教程", file: "tutorials/进阶教程.md", icon: "fa-gears" }
+];
 
-// 加载顶部 Markdown
-loadTop();
+// 加载全部教程
+files.forEach(item => {
+  fetch(item.file)
+    .then(r => r.text())
+    .then(md => renderMarkdown(item, md));
+});
 
-function loadTop() {
-  fetch("tutorials/top.md")
-    .then(res => res.text())
-    .then(md => {
-      articleEl.innerHTML = renderTop(md);
-    });
-}
+// 渲染 Markdown + 生成菜单
+function renderMarkdown(item, md) {
+  const lines = md.split("\n");
+  let currentSection = "";
 
-// 生成菜单
-for (const group in menus) {
-  const g = menus[group];
+  // 主菜单
+  const main = document.createElement("div");
+  main.className = "menu-main";
+  main.innerHTML = `<div class="menu-main-title">
+    <i class="fa ${item.icon}"></i> ${item.title}
+  </div>`;
+  menu.appendChild(main);
 
-  const groupEl = document.createElement("div");
-  groupEl.className = "menu-group";
+  lines.forEach(line => {
+    if (line.startsWith("## ")) {
+      const title = line.replace("## ", "");
+      const id = item.title + "-" + title;
 
-  const title = document.createElement("div");
-  title.className = "menu-group-title";
-  title.innerHTML = `<i class="fa ${g.icon}"></i>${group}`;
+      // 子菜单
+      const sub = document.createElement("div");
+      sub.className = "menu-sub";
+      sub.textContent = title;
+      sub.onclick = () => {
+        document.getElementById(id).scrollIntoView({
+          behavior: "smooth"
+        });
+      };
+      main.appendChild(sub);
 
-  const items = document.createElement("div");
-  items.className = "menu-items";
-
-  g.files.forEach(file => {
-    const item = document.createElement("div");
-    item.className = "menu-item";
-    item.textContent = file.replace(/^\d+-/, "").replace(".md", "");
-    item.onclick = () => loadMd(group, file);
-    items.appendChild(item);
+      // 内容区
+      currentSection = document.createElement("div");
+      currentSection.className = "section";
+      currentSection.id = id;
+      currentSection.innerHTML = `<h2>${title}</h2>`;
+      article.appendChild(currentSection);
+    } else if (currentSection) {
+      currentSection.innerHTML += `<p>${line}</p>`;
+    }
   });
-
-  title.onclick = () => {
-    items.style.display =
-      items.style.display === "none" ? "block" : "none";
-  };
-
-  groupEl.appendChild(title);
-  groupEl.appendChild(items);
-  menuEl.appendChild(groupEl);
-}
-
-// 加载教程
-function loadMd(group, file) {
-  fetch(`tutorials/${group}/${file}`)
-    .then(res => res.text())
-    .then(md => {
-      articleEl.innerHTML =
-        `<div class="article-card">${mdToHtml(md)}</div>`;
-    });
-}
-
-// Markdown 渲染
-function mdToHtml(md) {
-  return md
-    .replace(/^# (.*$)/gim, "<h1>$1</h1>")
-    .replace(/^## (.*$)/gim, "<h2>$1</h2>")
-    .replace(/^\\- \\[x\\] (.*)/gim, "<p class='check'>$1</p>")
-    .replace(/\\n/g, "<br>");
-}
-
-// 顶部内容渲染
-function renderTop(md) {
-  return md
-    .replace("{{banner}}",
-      `<div class="banner"><img src="images/banner.png"></div>`)
-    .replace("{{features}}", "")
-    .replace(/\\n/g, "<br>");
 }
