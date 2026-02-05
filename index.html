@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>云端漫步 · TG云控完整教程</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>云端漫步 · TG云控</title>
 
-  <!-- Docsify 官方主题 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- Docsify -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
 
-  <!-- 自定义主题 -->
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+
+  <!-- 主题样式 -->
   <link rel="stylesheet" href="assets/theme.css">
+
 </head>
 <body>
+  <div id="app"></div>
 
-<div id="app">正在加载云端漫步教程…</div>
-
-<script>
-  window.$docsify = {
-    name: '云端漫步 · TG云控',
-    loadSidebar: true,
-    subMaxLevel: 3,
-    auto2top: true,
-    themeColor: '#2563eb',
-    homepage: 'README.md'
-  }
-</script>
-
-<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script>
+    window.$docsify = {
+      name: '云端漫步 · TG云控',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      coverpage: false,
+      homepage: 'README.md'
+    }
+  </script>
 </body>
 </html>
