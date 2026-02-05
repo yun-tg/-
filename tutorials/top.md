@@ -1,4 +1,4 @@
-![横幅](../images/banner.png)
+![横幅](images/banner.png)
 
 ## 功能说明
 
