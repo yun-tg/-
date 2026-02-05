@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>云端漫步-TG云控</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+  <!-- Markdown 解析 -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
@@ -16,24 +15,28 @@
 
   <!-- 左侧菜单 -->
   <aside class="sidebar">
-    <div class="site-header">
-      <i class="fa-brands fa-telegram"></i>
-      <div>
-        <div class="site-name">云端漫步-TG云控</div>
-        <div class="site-sub">完整使用教程</div>
-      </div>
+    <div class="site-title">
+      ✈ 云端漫步-TG云控
+      <div class="site-sub">完整使用教程</div>
     </div>
 
-    <div id="menu"></div>
+    <ul class="menu">
+      <li onclick="loadPage('tutorials/01_基础入门.md')">
+        基础入门
+      </li>
+      <li onclick="loadPage('tutorials/02_进阶使用.md')">
+        进阶使用
+      </li>
+    </ul>
   </aside>
 
   <!-- 右侧内容 -->
-  <main class="main">
-    <div id="content">正在加载教程…</div>
+  <main class="content" id="content">
+    <p>请选择左侧教程</p>
   </main>
 
 </div>
 
-<script src="main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
