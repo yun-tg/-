@@ -14,13 +14,16 @@ async function loadPage(mdPath) {
     const text = await res.text();
 
     content.innerHTML = `
-      <div class="top-box">
-        ${marked.parse(topText)}
-      </div>
-      <div class="doc-box">
-        ${marked.parse(text)}
-      </div>
-    `;
+  <div class="content-inner">
+    <div class="top-box">
+      ${marked.parse(topText)}
+    </div>
+    <div class="doc-box">
+      ${marked.parse(text)}
+    </div>
+  </div>
+`;
+
   } catch (e) {
     content.innerHTML = "<p style='color:red'>教程加载失败</p>";
   }
