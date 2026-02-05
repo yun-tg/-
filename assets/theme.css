@@ -1,1 +1,33 @@
 
+/* 内容居中 */
+.content {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* 横幅 */
+.banner img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+/* 表格美化 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #f3f4f6;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* 左侧菜单字体 */
+.sidebar {
+  font-size: 14px;
+}
