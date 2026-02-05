@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>云端漫步-TG云控</title>
 
   <!-- Markdown 解析 -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- 样式 -->
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
 <div class="app">
 
-  <!-- 左侧菜单 -->
   <aside class="sidebar">
     <div class="site-title">
       ✈ 云端漫步-TG云控
@@ -21,26 +21,18 @@
     </div>
 
     <ul class="menu">
-      <li onclick="loadPage('tutorials/01_基础入门.md')">
-        基础入门
-      </li>
-      <li onclick="loadPage('tutorials/02_进阶使用.md')">
-        进阶使用
-      </li>
+      <li onclick="loadPage('tutorials/01_基础入门.md')">基础入门</li>
+      <li onclick="loadPage('tutorials/02_进阶使用.md')">进阶使用</li>
     </ul>
   </aside>
 
-  <!-- 右侧内容 -->
-  <main class="content" id="content">
-    <!-- 初始内容由 JS 自动加载 -->
-  </main>
+  <main class="content" id="content"></main>
 
 </div>
 
-<script src="js/main.js"></script>
+<script src="./js/main.js"></script>
 
 <script>
-  // ⭐ 页面打开时，自动加载第一篇教程
   loadPage('tutorials/01_基础入门.md');
 </script>
 
