@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  background: #f6f7f9;
+  background: #f4f6f8;
 }
 
 .layout {
@@ -16,29 +16,31 @@ body {
 /* 左侧 */
 .sidebar {
   width: 260px;
-  background: #1e2228;
+  background: #1f2329;
   color: #fff;
-  padding: 15px;
+  padding: 16px;
 }
 
 .site-title {
-  text-align: left;
-  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
 .site-title img {
   width: 36px;
-  vertical-align: middle;
 }
 
 .site-title h1 {
   font-size: 18px;
-  margin: 8px 0 2px;
+  margin: 0;
 }
 
 .site-title p {
   font-size: 12px;
   opacity: 0.7;
+  margin: 0;
 }
 
 .menu {
@@ -48,18 +50,17 @@ body {
 
 .menu-title {
   padding: 10px;
-  cursor: pointer;
   font-weight: bold;
 }
 
 .menu-title i {
-  margin-right: 8px;
   color: #4da3ff;
+  margin-right: 6px;
 }
 
 .submenu {
   list-style: none;
-  padding-left: 20px;
+  padding-left: 22px;
 }
 
 .submenu li {
@@ -74,18 +75,25 @@ body {
 /* 右侧 */
 .content {
   flex: 1;
+  background: #fff;
   padding: 30px;
   overflow-y: auto;
-  background: #fff;
 }
 
-/* Markdown */
-#article img {
-  max-width: 100%;
-}
-
+/* Markdown 美化 */
 #article h2::before {
   content: "📌 ";
+}
+
+#article table {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#article th,
+#article td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
 }
 
 #article ul li::marker {
@@ -93,12 +101,12 @@ body {
   color: green;
 }
 
-/* 淡入动画 */
+/* 动画 */
 #article {
-  animation: fadeIn 0.4s ease;
+  animation: fade 0.35s ease;
 }
 
-@keyframes fadeIn {
+@keyframes fade {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; }
 }
