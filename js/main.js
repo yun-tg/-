@@ -1,25 +1,32 @@
-const article = document.getElementById("article");
-
-async function loadMarkdown(file) {
-  article.innerHTML = "";
+async function loadPage(mdPath) {
+  const content = document.getElementById("content");
+  content.innerHTML = "<p>加载中...</p>";
 
   try {
-    const top = await fetch("tutorials/top.md");
-    article.innerHTML += marked.parse(await top.text());
+    // 先加载顶部说明
+    const topRes = await fetch("tutorials/top.md");
+    const topText = await topRes.text();
 
-    if (file) {
-      const res = await fetch("tutorials/" + file);
-      article.innerHTML += marked.parse(await res.text());
-    }
-  } catch {
-    article.innerHTML = "教程加载失败";
+    // 再加载正文教程
+    const res = await fetch(mdPath);
+    if (!res.ok) throw new Error("教程加载失败");
+
+    const text = await res.text();
+
+    content.innerHTML = `
+      <div class="top-box">
+        ${marked.parse(topText)}
+      </div>
+      <div class="doc-box">
+        ${marked.parse(text)}
+      </div>
+    `;
+  } catch (e) {
+    content.innerHTML = "<p style='color:red'>教程加载失败</p>";
   }
 }
 
-document.querySelectorAll(".submenu li").forEach(li => {
-  li.addEventListener("click", () => {
-    loadMarkdown(li.dataset.md);
-  });
-});
-
-loadMarkdown();
+/* 子菜单展开 */
+function toggleMenu(el) {
+  el.classList.toggle("open");
+}
