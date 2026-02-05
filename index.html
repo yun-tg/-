@@ -32,11 +32,17 @@
 
   <!-- 右侧内容 -->
   <main class="content" id="content">
-    <p>请选择左侧教程</p>
+    <!-- 初始内容由 JS 自动加载 -->
   </main>
 
 </div>
 
 <script src="js/main.js"></script>
+
+<script>
+  // ⭐ 页面打开时，自动加载第一篇教程
+  loadPage('tutorials/01_基础入门.md');
+</script>
+
 </body>
 </html>
