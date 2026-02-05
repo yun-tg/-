@@ -1,57 +1,212 @@
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:"Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333;}
-
-.container {display:flex; min-height:100vh;}
-
-/* 左侧菜单 */
-.sidebar {
-    width:260px; background:#1e1e2f; color:#fff; overflow-y:auto;
-    flex-shrink:0; position:fixed; height:100%;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family: "Microsoft YaHei", sans-serif;
+    background:#f4f6fb;
+    color:#333;
 }
-.sidebar-header {text-align:center; padding:30px 10px; border-bottom:1px solid #333;}
-.sidebar-header .site-title {font-size:22px; font-weight:bold; color:#1e90ff; text-shadow:1px 1px 3px rgba(0,0,0,0.3);}
-.sidebar-header .site-title i {margin-right:8px;}
-.sidebar ul {list-style:none;}
-.sidebar li {margin-bottom:5px; position:relative;}
-.sidebar a {
-    color:#ccc; text-decoration:none; display:flex; align-items:center;
-    padding:12px 15px; border-radius:5px; justify-content:center;
-    transition: background 0.3s, color 0.3s;
+
+.container{
+    display:flex;
+    min-height:100vh;
 }
-.sidebar a i {margin-right:8px; color:#1e90ff;}
-.sidebar a:hover {background:#444466; color:#fff;}
-.sidebar a.active {background:#1e90ff; color:#fff;}
+
+/* ===== 左侧菜单 ===== */
+.sidebar{
+    width:260px;
+    background:#1f2233;
+    color:#fff;
+    position:fixed;
+    height:100%;
+    overflow-y:auto;
+}
+
+.sidebar-header{
+    padding:26px 20px 22px;
+    border-bottom:1px solid #2c2f45;
+}
+
+.site-title{
+    display:flex;
+    align-items:center;
+    font-size:22px;
+    font-weight:700;
+    color:#4da3ff;
+}
+
+.site-title i{
+    margin-right:10px;
+}
+
+.site-subtitle{
+    margin-left:32px;
+    margin-top:6px;
+    font-size:13px;
+    color:#9aa0b5;
+}
+
+/* 菜单 */
+.sidebar ul{
+    list-style:none;
+    padding:10px;
+}
+
+.sidebar li{
+    position:relative;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+    padding:12px 16px;
+    margin-bottom:4px;
+    color:#cfd3ff;
+    text-decoration:none;
+    border-radius:6px;
+    transition:all .25s;
+}
+
+.sidebar a i{
+    color:#4da3ff;
+}
+
+.sidebar a:hover{
+    background:#2f3350;
+    color:#fff;
+}
+
+.sidebar a.active{
+    background:#4da3ff;
+    color:#fff;
+}
+
+.sidebar a.active i{
+    color:#fff;
+}
 
 /* 子菜单 */
-.submenu {display:none; list-style:none; padding-left:15px;}
-.submenu li a {font-size:14px; justify-content:center;}
-.has-sub > a::after {content:'▶'; position:absolute; right:15px; transition: transform 0.3s;}
-.has-sub.open > a::after {transform: rotate(90deg);}
+.submenu{
+    display:none;
+    padding-left:18px;
+}
 
-/* 右侧内容 */
-.content {margin-left:260px; flex-grow:1; padding:30px; overflow-y:auto; display:flex; flex-direction:column; align-items:center;}
-.top-panel {width:90%; max-width:900px; margin-bottom:30px; text-align:center;}
-.top-panel .banner-img {width:100%; border-radius:8px; margin-bottom:20px;}
-.feature-table {width:100%; border-collapse:collapse; margin-bottom:30px;}
-.feature-table th, .feature-table td {border:1px solid #ddd; padding:10px; text-align:center;}
-.feature-table th {background:#1e90ff; color:#fff;}
+.submenu a{
+    font-size:14px;
+    color:#b9bde0;
+}
+
+/* 展开箭头 */
+.has-sub>a::after{
+    content:"›";
+    position:absolute;
+    right:16px;
+    transition:transform .25s;
+}
+
+.has-sub.open>a::after{
+    transform:rotate(90deg);
+}
+
+/* ===== 右侧内容 ===== */
+.content{
+    margin-left:260px;
+    width:100%;
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.top-panel{
+    width:100%;
+    max-width:900px;
+    margin-bottom:30px;
+}
+
+.banner-img{
+    width:100%;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.feature-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.feature-table th{
+    background:#4da3ff;
+    color:#fff;
+    padding:10px;
+}
+
+.feature-table td{
+    background:#fff;
+    padding:10px;
+    border:1px solid #ddd;
+}
 
 /* 教程卡片 */
-.section-card {
-    width:90%; max-width:900px; background:#fff;
-    border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.1);
-    padding:25px; margin-bottom:30px;
+.section-card{
+    width:100%;
+    max-width:900px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    padding:28px;
+    margin-bottom:32px;
 }
-.section-card h1 {display:flex; align-items:center; border-bottom:3px solid #1e90ff; padding-bottom:10px; margin-bottom:15px;}
-.section-card h1 i {margin-right:10px; color:#1e90ff;}
-.section-card h2 {display:flex; align-items:center; margin-top:20px; margin-bottom:10px; color:#555;}
-.section-card h2 i {margin-right:6px; color:#ff9800;}
-.section-card p {margin-bottom:15px; line-height:1.6; display:flex; align-items:center; opacity:0; transform: translateY(5px); animation:fadeInUp 0.6s forwards;}
-.section-card p i {margin-right:6px;}
-.section-card p i[data-type="check"] {color:#4caf50;}
-.section-card p i[data-type="star"] {color:#ff9800;}
-.section-card p i[data-type="lightning"] {color:#ffeb3b;}
-@keyframes fadeInUp {from {opacity:0; transform: translateY(5px);} to {opacity:1; transform: translateY(0);}}
-.section-card img {max-width:100%; border-radius:6px; margin-bottom:15px;}
-html {scroll-behavior:smooth;}
-@media(max-width:768px){.sidebar {position:relative; width:100%; height:auto;}.content {margin-left:0;}}
+
+.section-card h1{
+    display:flex;
+    align-items:center;
+    font-size:22px;
+    margin-bottom:16px;
+    border-bottom:3px solid #4da3ff;
+    padding-bottom:8px;
+}
+
+.section-card h1 i{
+    margin-right:10px;
+    color:#4da3ff;
+}
+
+.section-card h2{
+    display:flex;
+    align-items:center;
+    font-size:18px;
+    margin:22px 0 12px;
+}
+
+.section-card h2 i{
+    margin-right:8px;
+    color:#ff9800;
+}
+
+.section-card p{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:12px;
+    line-height:1.6;
+    opacity:0;
+    transform:translateY(6px);
+    animation:fadeUp .5s forwards;
+}
+
+.section-card p i[data-type="check"]{color:#4caf50}
+.section-card p i[data-type="star"]{color:#ff9800}
+.section-card p i[data-type="lightning"]{color:#fdd835}
+
+.section-card img{
+    max-width:100%;
+    border-radius:8px;
+    margin:12px 0;
+}
+
+@keyframes fadeUp{
+    to{opacity:1;transform:none}
+}
+
+html{scroll-behavior:smooth}
