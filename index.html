@@ -2,41 +2,32 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>云端漫步-TG云控</title>
+  <title>云端漫步 · 完整使用教程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 图标 -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Docsify -->
+  <script>
+    window.$docsify = {
+      name: '云端漫步 TG云控',
+      repo: '',
+      loadSidebar: true,
+      loadNavbar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      coverpage: false,
+      search: 'auto',
+      themeColor: '#3b82f6'
+    }
+  </script>
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="./assets/theme.css">
 </head>
+
 <body>
+  <div id="app"></div>
 
-<div class="app">
-
-  <!-- 左侧 -->
-  <aside class="sidebar">
-    <div class="site-name">
-      <i class="fa-solid fa-paper-plane"></i>
-      云端漫步-TG云控
-    </div>
-    <div class="site-sub">完整使用教程</div>
-
-    <div id="menu"></div>
-  </aside>
-
-  <!-- 右侧 -->
-  <main class="content">
-    <div class="banner">
-      <img src="images/banner.png">
-    </div>
-
-    <!-- 内容容器（⚠️不替换整个 main） -->
-    <div id="article" class="article"></div>
-  </main>
-
-</div>
-
-<script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 </body>
 </html>
