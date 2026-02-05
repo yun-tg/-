@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>云端漫步 TG云控</title>
-
-  <!-- Docsify 默认主题（基础） -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
-
-  <!-- ✅ 你的自定义美化主题 -->
-  <link rel="stylesheet" href="assets/theme.css">
-
+  <meta charset="UTF-8" />
+  <title>云端漫步 · 教程中心</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-  <div id="app"></div>
 
-  <!-- Docsify 主程序 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<header class="top">
+  <img src="images/logo.png" class="logo">
+  <span>云端漫步 · 教程中心</span>
+</header>
 
-  <!-- Docsify 配置 -->
-  <script>
-    window.$docsify = {
-      name: '云端漫步 TG云控',
-      subMaxLevel: 3,
-      loadSidebar: true,
-      sidebarDisplayLevel: 2,
-      auto2top: true,
-      themeColor: '#3b82f6'
-    }
-  </script>
+<div class="layout">
+  <aside id="sidebar"></aside>
+
+  <main>
+    <div class="banner">
+      <img src="images/banner.png">
+    </div>
+
+    <article id="content">
+      <p class="loading">请选择左侧教程</p>
+    </article>
+  </main>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
