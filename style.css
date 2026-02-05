@@ -6,19 +6,19 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                "PingFang SC", "Microsoft YaHei", sans-serif;
-  background: #f6f7f9;
-  color: #333;
+  background: #f5f6f8;
 }
 
-.layout {
+/* 布局 */
+.app {
   display: flex;
   height: 100vh;
 }
 
-/* 左侧菜单 */
+/* 左侧 */
 .sidebar {
   width: 260px;
-  background: #111827;
+  background: #0f172a;
   color: #fff;
   padding: 20px;
   position: fixed;
@@ -27,52 +27,84 @@ body {
   bottom: 0;
 }
 
-.site-title {
+/* 站名 */
+.site-header {
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: 12px;
   margin-bottom: 30px;
 }
 
-.site-title i {
-  font-size: 26px;
+.site-header i {
+  font-size: 28px;
   color: #38bdf8;
 }
 
-.site-title .name {
+.site-name {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: bold;
 }
 
-.site-title .sub {
+.site-sub {
   font-size: 12px;
-  color: #9ca3af;
+  color: #94a3b8;
 }
 
-#menu a {
+/* 菜单 */
+.menu-group {
+  margin-bottom: 10px;
+}
+
+.menu-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.menu-title:hover {
+  background: #1e293b;
+}
+
+.menu-title span {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
-  margin-bottom: 6px;
-  color: #e5e7eb;
+}
+
+.menu-sub {
+  display: none;
+  margin-left: 20px;
+}
+
+.menu-sub a {
+  display: block;
+  padding: 8px 10px;
+  color: #cbd5f5;
   text-decoration: none;
   border-radius: 6px;
 }
 
-#menu a:hover,
-#menu a.active {
-  background: #1f2937;
+.menu-sub a:hover {
+  background: #334155;
 }
 
-#menu i {
-  width: 18px;
-  text-align: center;
-  color: #60a5fa;
+.menu-sub.open {
+  display: block;
 }
 
-/* 内容区 */
-.content {
+.arrow {
+  transition: transform 0.2s;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+
+/* 右侧内容 */
+.main {
   margin-left: 260px;
   padding: 40px;
   width: calc(100% - 260px);
@@ -80,19 +112,16 @@ body {
 
 #content {
   max-width: 900px;
+  margin: auto;
   background: #fff;
   padding: 40px;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
-/* Markdown 样式 */
+/* Markdown */
 h1 {
   border-bottom: 2px solid #e5e7eb;
   padding-bottom: 10px;
-}
-
-h2 {
-  margin-top: 30px;
 }
 
 img {
