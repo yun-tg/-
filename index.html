@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>云端漫步-TG云控</title>
+  <meta charset="UTF-8" />
+  <title>云端漫步-TG云控 · 完整使用教程</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 
-<div class="container">
+<div class="layout">
 
-    <!-- 左侧菜单 -->
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <div class="site-title">
-                <i class="fas fa-paper-plane"></i>
-                <span class="main-title">云端漫步-TG云控</span>
-            </div>
-            <div class="site-subtitle">完整使用教程</div>
-        </div>
+  <!-- 左侧菜单 -->
+  <aside class="sidebar">
+    <div class="site-title">
+      <i class="fa-solid fa-paper-plane"></i>
+      <div>
+        <div class="name">云端漫步-TG云控</div>
+        <div class="sub">完整使用教程</div>
+      </div>
+    </div>
 
-        <ul id="menu"></ul>
-    </aside>
+    <nav id="menu"></nav>
+  </aside>
 
-    <!-- 右侧内容 -->
-    <main class="content" id="content">
-        <section class="top-panel">
-            <img src="images/banner.png" class="banner-img">
-            <table class="feature-table">
-                <tr><th>功能</th><th>说明</th></tr>
-                <tr><td>云控管理</td><td>集中控制多个 TG 账号</td></tr>
-                <tr><td>自动脚本</td><td>自动化执行营销任务</td></tr>
-                <tr><td>数据统计</td><td>实时监控运行状态</td></tr>
-            </table>
-        </section>
-    </main>
+  <!-- 右侧内容 -->
+  <main class="content">
+    <div id="content"></div>
+  </main>
 
 </div>
 
-<script src="js/main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
