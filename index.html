@@ -1,56 +1,48 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>云端漫步-TG云控</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-  <link rel="stylesheet" href="css/style.css">
 </head>
-<body><div style="background:red;color:white;padding:10px;">
-  如果你看到这行字，说明新代码生效了
-</div>
 
-<div class="layout">
+<body>
+<div class="app">
 
   <aside class="sidebar">
     <div class="site-title">
-      <img src="images/logo.png">
-      <div>
-        <h1>云端漫步-TG云控</h1>
-        <p>完整使用教程</p>
-      </div>
+      ✈ 云端漫步-TG云控
+      <div class="site-sub">完整使用教程</div>
     </div>
 
     <ul class="menu">
-      <li>
-        <div class="menu-title">
-          <i class="fa-solid fa-book"></i> 基础教程
-        </div>
+
+      <li class="menu-group" onclick="toggleMenu(this)">
+        📘 基础教程
         <ul class="submenu">
-          <li data-md="01_基础入门.md">基础入门</li>
+          <li onclick="loadPage('tutorials/01_基础入门.md')">基础入门</li>
         </ul>
       </li>
 
-      <li>
-        <div class="menu-title">
-          <i class="fa-solid fa-rocket"></i> 进阶教程
-        </div>
+      <li class="menu-group" onclick="toggleMenu(this)">
+        🚀 进阶教程
         <ul class="submenu">
-          <li data-md="02_进阶使用.md">进阶使用</li>
+          <li onclick="loadPage('tutorials/02_进阶使用.md')">进阶使用</li>
         </ul>
       </li>
+
     </ul>
   </aside>
 
-  <main class="content">
-    <div id="article"></div>
-  </main>
+  <main class="content" id="content"></main>
 
 </div>
 
-<script src="js/main.js"></script>
+<script src="./js/main.js"></script>
+<script>
+  loadPage("tutorials/01_基础入门.md");
+</script>
 </body>
 </html>
