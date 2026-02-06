@@ -1,14 +1,33 @@
-- 🏠 首页
-  - [项目介绍](README.md)
+/* 页面整体 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
 
-- 📘 基础教程
-  - [1.1 软件安装](tutorials/1-1.md)
-  - [1.2 登录与界面](tutorials/1-2.md)
-  - [1.3 基础设置](tutorials/1-3.md)
+/* 横幅图片 */
+.markdown-section img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
-- ⚙️ 高级功能
-  - [2.1 群控功能](tutorials/2-1.md)
-  - [2.2 自动任务](tutorials/2-2.md)
+/* 表格美化 */
+.markdown-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-- ❓ 常见问题
-  - [FAQ](tutorials/faq.md)
+.markdown-section table th,
+.markdown-section table td {
+  border: 1px solid #eaecef;
+  padding: 10px;
+}
+
+.markdown-section table th {
+  background: #f5f7fa;
+}
+
+/* 内容居中 */
+.markdown-section {
+  max-width: 900px;
+  margin: auto;
+}
