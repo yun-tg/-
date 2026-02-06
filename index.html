@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="./assets/theme.css">
 </head>
+
 <body>
   <div id="app">加载中...</div>
 
@@ -17,22 +18,20 @@
       name: '云端漫步',
       repo: '',
 
-      // 关键配置（这三个决定你现在的问题）
-      loadSidebar: _sidebar.md,
-      loadNavbar: false,
-      auto2top: true,
-
-      // 文档根目录（重点）
-      basePath: './',
-
-      // 首页
       homepage: 'README.md',
 
+      loadSidebar: true,
       subMaxLevel: 2,
+
+      auto2top: true,
+
+      // ✅ 关键：强制 sidebar 路径
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      }
     }
   </script>
 
-  <!-- Docsify 主脚本 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
