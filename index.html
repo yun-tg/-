@@ -2,10 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>云端漫步 · 教程</title>
+  <title>云端漫步 · TG 云控教程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Docsify 样式 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="./assets/theme.css">
 </head>
@@ -16,19 +15,14 @@
   <script>
     window.$docsify = {
       name: '云端漫步',
-      repo: '',
-
       homepage: 'README.md',
 
-      loadSidebar: true,
+      /* 🚑 关键：强制指定 sidebar 文件 */
+      loadSidebar: 'docs/_sidebar.md',
+
       subMaxLevel: 2,
-
       auto2top: true,
-
-      // ✅ 关键：强制 sidebar 路径
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      }
+      relativePath: false
     }
   </script>
 
