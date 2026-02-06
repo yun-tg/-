@@ -1,10 +1,14 @@
-- 📘 使用指南
-  - [🏠 首页](README.md)
+- 🏠 首页
+  - [项目介绍](README.md)
 
-- 🚀 快速开始
-  - [安装说明](docs/start/install.md)
-  - [基础配置](docs/start/config.md)
+- 📘 基础教程
+  - [1.1 软件安装](tutorials/1-1.md)
+  - [1.2 登录与界面](tutorials/1-2.md)
+  - [1.3 基础设置](tutorials/1-3.md)
 
-- 📚 功能教程
-  - [账号管理](docs/function/account.md)
-  - [群控说明](docs/function/group.md)
+- ⚙️ 高级功能
+  - [2.1 群控功能](tutorials/2-1.md)
+  - [2.2 自动任务](tutorials/2-2.md)
+
+- ❓ 常见问题
+  - [FAQ](tutorials/faq.md)
