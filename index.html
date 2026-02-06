@@ -5,7 +5,7 @@
   <title>云端漫步 · TG 云控教程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Docsify -->
+  <!-- Docsify 主题 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="./assets/theme.css">
 </head>
@@ -15,11 +15,12 @@
   <script>
     window.$docsify = {
       name: '云端漫步 · TG云控',
-      loadSidebar: true,
+      loadSidebar: true,     // 启用侧边栏
       subMaxLevel: 3,
       auto2top: true,
-      relativePath: true,
-      repo: ''
+      repo: '',
+      homepage: 'README.md' // 明确首页
+      // ❗ 注意：这里【没有】relativePath
     }
   </script>
 
