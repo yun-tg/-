@@ -1,8 +1,6 @@
-<div class="banner">
-  <img src="images/banner.png">
-</div>
+![banner](images/banner.png)
 
-## 云端漫步 · TG云控完整使用教程
+# 云端漫步 · TG 云控完整教程
 
 > 不止群发，更重风控与效率
 
@@ -13,7 +11,3 @@
 | 群发私信 | 模板 + 风控 |
 | 代理管理 | IP 自动切换 |
 | 长期运行 | 稳定不掉线 |
-
----
-
-👉 请从左侧菜单开始阅读教程
