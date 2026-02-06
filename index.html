@@ -8,21 +8,30 @@
   <!-- Docsify 主题 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="./assets/theme.css">
+
+  <!-- 图标 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
 </head>
 <body>
   <div id="app">加载中...</div>
 
   <script>
     window.$docsify = {
-      name: '云端漫步 · TG云控',
+      name: '云端漫步 · TG 云控',
       loadSidebar: true,
       subMaxLevel: 3,
       auto2top: true,
       homepage: 'README.md',
-      relativePath: true,     // ✅ 关键：GitHub Pages 子目录
+      relativePath: true,
+
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
-      }
+      },
+
+      // 平滑滚动 & 锚点
+      executeScript: true,
+      scrollToTop: true,
+      topMargin: 60
     }
   </script>
 
