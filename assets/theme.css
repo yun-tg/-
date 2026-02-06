@@ -1,28 +1,33 @@
-/* 内容居中 */
-.markdown-section {
-  max-width: 900px;
-  margin: 0 auto;
+/* 页面整体 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* 左侧菜单 */
-.sidebar {
-  background: linear-gradient(180deg,#0f172a,#020617);
+/* 横幅图片 */
+.markdown-section img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.sidebar a {
-  color: #e5e7eb !important;
-}
-
-.sidebar a:hover {
-  color: #38bdf8 !important;
-}
-
-/* 表格 */
-table {
+/* 表格美化 */
+.markdown-section table {
+  width: 100%;
   border-collapse: collapse;
 }
 
-th, td {
-  border: 1px solid #e5e7eb;
-  padding: 8px;
+.markdown-section table th,
+.markdown-section table td {
+  border: 1px solid #eaecef;
+  padding: 10px;
+}
+
+.markdown-section table th {
+  background: #f5f7fa;
+}
+
+/* 内容居中 */
+.markdown-section {
+  max-width: 900px;
+  margin: auto;
 }
