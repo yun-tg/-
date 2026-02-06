@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>云端漫步 · TG 云控教程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- Docsify -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="./assets/theme.css">
 </head>
-
 <body>
   <div id="app">加载中...</div>
 
   <script>
     window.$docsify = {
-      name: '云端漫步',
-      homepage: 'README.md',
-
-      /* 🚑 关键：强制指定 sidebar 文件 */
-      loadSidebar: 'docs/_sidebar.md',
-
-      subMaxLevel: 2,
+      name: '云端漫步 · TG云控',
+      loadSidebar: true,
+      subMaxLevel: 3,
       auto2top: true,
-      relativePath: false
+      relativePath: true,
+      repo: ''
     }
   </script>
 
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
