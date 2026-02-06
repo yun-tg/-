@@ -1,33 +1,47 @@
-/* 页面整体 */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+/* 内容区域居中 */
+.markdown-section {
+  max-width: 980px;
+  margin: auto;
 }
 
-/* 横幅图片 */
+/* 横幅 */
 .markdown-section img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
 }
 
-/* 表格美化 */
+/* 表格功能区 */
 .markdown-section table {
   width: 100%;
   border-collapse: collapse;
+  margin: 20px 0;
 }
 
-.markdown-section table th,
-.markdown-section table td {
-  border: 1px solid #eaecef;
-  padding: 10px;
+.markdown-section th,
+.markdown-section td {
+  border: 1px solid #e5e7eb;
+  padding: 12px;
 }
 
-.markdown-section table th {
-  background: #f5f7fa;
+.markdown-section th {
+  background: #f8fafc;
 }
 
-/* 内容居中 */
-.markdown-section {
-  max-width: 900px;
-  margin: auto;
+/* 左侧菜单 */
+.sidebar {
+  font-size: 14px;
+}
+
+.sidebar ul li a {
+  transition: all 0.2s;
+}
+
+.sidebar ul li a:hover {
+  color: #42b983;
+}
+
+/* 标题间距 */
+.markdown-section h1,
+.markdown-section h2 {
+  margin-top: 40px;
 }
