@@ -15,12 +15,14 @@
   <script>
     window.$docsify = {
       name: '云端漫步 · TG云控',
-      loadSidebar: true,     // 启用侧边栏
+      loadSidebar: true,
       subMaxLevel: 3,
       auto2top: true,
-      repo: '',
-      homepage: 'README.md' // 明确首页
-      // ❗ 注意：这里【没有】relativePath
+      homepage: 'README.md',
+      relativePath: true,     // ✅ 关键：GitHub Pages 子目录
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      }
     }
   </script>
 
