@@ -1,0 +1,28 @@
+/* 内容居中 */
+.markdown-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 左侧菜单 */
+.sidebar {
+  background: linear-gradient(180deg,#0f172a,#020617);
+}
+
+.sidebar a {
+  color: #e5e7eb !important;
+}
+
+.sidebar a:hover {
+  color: #38bdf8 !important;
+}
+
+/* 表格 */
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+}
